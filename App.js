@@ -2,13 +2,13 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Signup from './screens/Signup';
-import Signin from './screens/Signin';
-import Home from './screens/Home';
-import Map from './screens/Map';
-import Notification from './screens/Notification';
-import Détails from './screens/Détails'
-import AddPost from './screens/AddPost';
+import Signup from './src/screens/Signup/Signup';
+import Signin from './src/screens/Login/Signin';
+import Home from './src/screens/Home/Home';
+import Map from './src/screens/Maps/Map';
+import Notification from './src/screens/Notification/Notification';
+import Détails from './src/screens/Détails/Détails';
+import AddPost from './src/screens/AddPost/AddPost';
 import { Provider } from 'react-redux';
 import store from './src/Redux/store';
 import { PersistGate } from "redux-persist/integration/react";

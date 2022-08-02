@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Text, TextInput, View, TouchableOpacity, ActivityIndicator, ScrollView, Image } from 'react-native';
-import Api from './../source/api'
+import Api from '../../../source/api'
 import { ScaledSheet } from "react-native-size-matters";
-import { displayToast } from "./../lib/interactions";
+import { displayToast } from "../../../lib/interactions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Signin = ({ navigation }) => {

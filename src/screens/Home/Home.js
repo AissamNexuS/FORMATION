@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet, SafeAreaView, FlatList, Image, TouchableOpacity } from 'react-native'
-import Api from '../source/api';
+import Api from '../../source/api'
 import ModalConf2 from '../component/modalglobal2';
 import { useSelector, useDispatch } from 'react-redux'
 import { selectPosts, setPosts, initial } from '../src/Redux/PostSlice';
