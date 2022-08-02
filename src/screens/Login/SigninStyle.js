@@ -52,9 +52,9 @@ const SigninStyles = ScaledSheet.create({
     },
     contaire98: {
         color: "red",
-        fontSize: 16,
+        fontSize: 10,
         fontWeight: "500",
-        alignSelf: "center",
+
         marginVertical: '10@s',
 
     },

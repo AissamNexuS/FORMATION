@@ -52,13 +52,13 @@ const SignupStyles = ScaledSheet.create({
     },
     contaire98: {
         color: "red",
-        fontSize: 14,
+        fontSize: 10,
         fontWeight: "500",
-        alignSelf: "center",
+
 
     },
     TxtB: {
-        alignSelf: "center",
+        left : 10
     },
 })
 
