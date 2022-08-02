@@ -7,7 +7,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //import reportError from "lib/errorHandler";
 
-const appName = require("../package.json").name;
+const appName = require("./../../package.json").name;
 
 function getSession() {
   var promise = new Promise(async (resolve, reject) => {

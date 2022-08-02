@@ -1,6 +1,6 @@
 "use strict";
 import CookieManager from "@react-native-cookies/cookies";
-import { displayToast } from "./../lib/interactions";
+import { displayToast } from '../../lib/interactions'
 import storage from "./storage";
 
 

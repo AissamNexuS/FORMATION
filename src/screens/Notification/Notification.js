@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {Text, View } from 'react-native'
 import React from 'react'
+import notifStyles from './NotificationStyles';
 
 const Notification = () => {
     return (
@@ -11,4 +12,3 @@ const Notification = () => {
 
 export default Notification
 
-const styles = StyleSheet.create({})
