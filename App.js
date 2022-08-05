@@ -15,6 +15,7 @@ import {persistStore} from 'redux-persist';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import {Platform} from 'react-native';
+import PdfView from './src/screens/pdf/pdf';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,7 @@ export default function app() {
               <Stack.Screen name="HomeOR" component={ButonBarSelect} />
               <Stack.Screen name="Détails" component={Détails} />
               <Stack.Screen name="AddPost" component={AddPost} />
+              <Stack.Screen name="PdfView" component={PdfView} />
             </Stack.Navigator>
           </PersistGate>
         </Provider>

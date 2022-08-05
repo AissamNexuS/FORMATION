@@ -32,7 +32,6 @@ const Home = ({navigation}) => {
   useEffect(() => {
     dispatch(initial([]));
     LoadData(0);
-    onRefresh();
 
     console.log(postFromStorage);
   }, []);

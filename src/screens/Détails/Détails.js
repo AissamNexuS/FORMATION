@@ -42,7 +42,13 @@ export default function Detais({navigation}) {
 
       <View>
         <TouchableOpacity
-          style={{alignContent: 'center', alignItems: 'center', left: -3}}>
+          style={{alignContent: 'center', alignItems: 'center', left: -3}}
+          onPress={() => {
+            navigation.navigate('PdfView', {
+              item: item,
+              uri: `https://api.formation.flexi-apps.com${item.fileUrl}`,
+            });
+          }}>
           <Image
             style={{width: 50, height: 50}}
             source={require('../../../img/pngs/pdf.png')}
