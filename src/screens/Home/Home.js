@@ -36,11 +36,13 @@ const Home = ({navigation}) => {
 
     console.log(postFromStorage);
   }, []);
+
   const onRefresh = () => {
     setLoad(false);
     dispatch(initializeList([]));
     LoadData(0);
   };
+
   const onEndReached = () => {
     setLoad(true);
     if (postFromStorage?.length < count) {
