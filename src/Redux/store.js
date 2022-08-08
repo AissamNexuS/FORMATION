@@ -14,11 +14,13 @@ import {
 import PostSlice from './PostSlice';
 import DetailsSlice from './DetailsSlice';
 import pathSlice from './pathSlice';
+import CnxSlice from './CnxSlice';
 
 const reducers = combineReducers({
   posts: PostSlice,
   details: DetailsSlice,
   path: pathSlice,
+  connected: CnxSlice,
 });
 const persistConfig = {
   key: 'root',

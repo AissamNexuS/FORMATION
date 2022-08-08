@@ -19,14 +19,16 @@ import {
 import moment from 'moment';
 import {setDetails} from './../../Redux/DetailsSlice';
 import HomeStyles from './HomeStyle';
-// import PushNotification from 'react-native-push-notification';
+import {selectConnected} from '../../Redux/CnxSlice';
+import {setPath} from '../../Redux/pathSlice';
 
 const Home = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const [load, setLoad] = useState(true);
   const [count, setCount] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
 
-  const dispatch = useDispatch();
   const postFromStorage = useSelector(selectPosts);
 
   useEffect(() => {
@@ -178,7 +180,8 @@ const Home = ({navigation}) => {
           progressViewOffset={100}
           onEndReached={onEndReached}
         />
-        <View style={HomeStyles.logop5}>
+
+        {/* <View style={HomeStyles.logop5}>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('AddPost');
@@ -188,7 +191,7 @@ const Home = ({navigation}) => {
               style={HomeStyles.logop6}
             />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </SafeAreaView>
     </View>
   );

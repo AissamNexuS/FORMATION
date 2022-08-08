@@ -145,7 +145,6 @@
 				C142521D59398CDF88F43CF1 /* Pods-Formation-FormationTests.debug.xcconfig */,
 				A80D821056412B78A14F7281 /* Pods-Formation-FormationTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -485,6 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT52PWQT52;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Formation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KT52PWQT52;
 				INFOPLIST_FILE = Formation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

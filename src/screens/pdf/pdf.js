@@ -11,10 +11,11 @@ import {
 import RNFetchBlob from 'rn-fetch-blob';
 import Pdf from 'react-native-pdf';
 import {ScaledSheet} from 'react-native-size-matters';
-
 import {displayToast} from '../../../lib/interactions';
 
 export default function PdfView({navigation, route}) {
+
+
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState();
 
@@ -30,8 +31,8 @@ export default function PdfView({navigation, route}) {
         PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
           {
-            title: 'storage title',
-            message: 'storage_permission',
+            title: 'Important message',
+            message: 'Activer la permission de stockage pour telechager',
           },
         ).then(granted => {
           if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -130,7 +131,7 @@ export default function PdfView({navigation, route}) {
       <Pdf
         source={source}
         onLoadComplete={numberOfPages => {
-          console.log(`Number of pages: ${numberOfPages}`);
+          // console.log(`Number of pages: ${numberOfPages}`);
           setPages(numberOfPages);
         }}
         onPageChanged={(page, numberOfPages) => {

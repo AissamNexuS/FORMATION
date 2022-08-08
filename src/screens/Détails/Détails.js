@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {useSelector} from 'react-redux';
 import moment from 'moment';
 import StylesDetails from './DétailsStyle';
+import {useSelector} from 'react-redux';
 
 export default function Detais({navigation}) {
   const item = useSelector(state => state.details.value);

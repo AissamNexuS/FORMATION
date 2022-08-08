@@ -1,10 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+const initialState = {
+  value: '',
+};
+
 export const pathSlice = createSlice({
   name: 'path',
-  initialState: {
-    value: '',
-  },
+  initialState,
   reducers: {
     setPath: (state, action) => {
       state.value = action.payload;

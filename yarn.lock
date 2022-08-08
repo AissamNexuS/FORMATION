@@ -6314,6 +6314,11 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
+"react-native-fast-toast@^3.0.1":
+  "integrity" "sha512-ugCcVQ2C09ZUlxPZSG0f89Mb8wzvbgOyVHIbUxIbAr01jr77DWFOEgiG1Z4v9FH/O/mm6mZjmJPEIAqvN0ck0Q=="
+  "resolved" "https://registry.npmjs.org/react-native-fast-toast/-/react-native-fast-toast-3.0.1.tgz"
+  "version" "3.0.1"
+
 "react-native-google-places-autocomplete@^2.4.1":
   "integrity" "sha512-NJrzZ5zsguhTqe0C5tIW9PfxOn2wkWDiGYIBFksHzFOIIURxFPUlO0cJmfOjs5CBIDtMampgNXBdgADExBen5w=="
   "resolved" "https://registry.npmjs.org/react-native-google-places-autocomplete/-/react-native-google-places-autocomplete-2.4.1.tgz"
@@ -6366,6 +6371,13 @@
   "version" "2.0.2"
   dependencies:
     "prop-types" "^15.5.10"
+
+"react-native-onesignal@^4.4.0":
+  "integrity" "sha512-1yYo/SI8dc9mEC0AaaMrY06aIylaV5EDsnQIFupRAjetwyk7fTSrblNk16MBOT5PSMjeDaBvC9PofPd8A1sUyQ=="
+  "resolved" "https://registry.npmjs.org/react-native-onesignal/-/react-native-onesignal-4.4.0.tgz"
+  "version" "4.4.0"
+  dependencies:
+    "invariant" "^2.2.2"
 
 "react-native-paper@^4.12.3":
   "integrity" "sha512-NMfLSIN0Ql/KCTSimhgzbEOgz371dqDAgChnp2VE4H7n1B0Pwy0bzPKmY/T8trVvEdmJRXrbXAusaFq8elDXNg=="

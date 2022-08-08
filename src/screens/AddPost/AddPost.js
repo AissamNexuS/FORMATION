@@ -9,7 +9,6 @@ import {
   TextInput,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {ScaledSheet} from 'react-native-size-matters';
 import ModalConf from '../component/modalglobal';
 import StylesDetails from './AddPostStyle';
 
