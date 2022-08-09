@@ -12,7 +12,7 @@ import {persistStore} from 'redux-persist';
 import {PersistGate} from 'redux-persist/integration/react';
 
 let persistor = persistStore(store);
-const RNRedux = () => (
+const ReduxConf = () => (
   <ToastProvider>
     <Provider loading={null} store={store}>
       <PersistGate persistor={persistor}>
@@ -22,4 +22,4 @@ const RNRedux = () => (
   </ToastProvider>
 );
 
-AppRegistry.registerComponent(appName, () => RNRedux);
+AppRegistry.registerComponent(appName, () => ReduxConf);

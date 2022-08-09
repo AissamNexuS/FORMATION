@@ -4,24 +4,25 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  ActivityIndicator,
   ScrollView,
+  SafeAreaView,
+  BackHandler,
   Image,
+  StatusBar,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Api from './../../source/api';
-
+import SimpleLottie from '../component/SimpleLottie/SimpleLottie';
 import {displayToast} from '../../../lib/interactions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SigninStyles from './SigninStyle';
-
+import ActivityIndicatorS from '../component/indicator/ActivityIndicatorS';
 const Signin = ({navigation}) => {
-
-
   const [Email, setEmail] = useState('');
   const [PassWord, setPassWord] = useState('');
   const [HideShowPassWord, setHideShowPassWord] = useState(true);
-
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [show, setShow] = useState(false);
 
   const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const number = /[0-9]/;
@@ -30,6 +31,17 @@ const Signin = ({navigation}) => {
   useEffect(() => {
     getEmail();
     getPassword();
+  }, []);
+
+  const backAction = () => {
+    BackHandler.exitApp();
+  };
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+    return () => backHandler.remove();
   }, []);
 
   function setEmail2(email) {
@@ -94,8 +106,9 @@ const Signin = ({navigation}) => {
   const Signin1 = () => {
     setEmail2(Email);
     setPassWord2(PassWord);
+    setIsLoading(true);
+    setShow(true);
 
-    setLoading(true);
     Api()
       .post('/api/v1/auth/signin', {
         username: Email,
@@ -103,124 +116,153 @@ const Signin = ({navigation}) => {
         oneSignalPlayerId: '',
       })
       .then(res => {
-        // storeData();
-        setLoading(false);
+        storeData();
+        setIsLoading(false);
         console.log('res', res);
         navigation.replace('HomeOR');
       })
       .catch(e => {
+        setShow(false);
         console.log('errrrrror   ', e.message);
         displayToast(e.message);
-        setLoading(false);
+        setIsLoading(false);
       });
   };
-
+  const storeData = async () => {
+    try {
+      await AsyncStorage.setItem('email', Email);
+      console.log('Sescuful 1');
+    } catch (e) {
+      console.log('err 1');
+    }
+    try {
+      await AsyncStorage.setItem('mdp', PassWord);
+      console.log('Sescuful 2');
+    } catch (e) {
+      console.log('Err 2');
+    }
+  };
   return (
-    <View style={SigninStyles.con}>
-      <View style={{justifyContent: 'flex-start'}}>
-        <Text style={SigninStyles.contaire}>Se Connecter</Text>
-      </View>
-      <ScrollView style={SigninStyles.ScrollV}>
-        <View style={{alignItems: 'center'}}>
-          <Image
-            source={require('../../../img/logo.png')}
-            style={{width: 300, height: 300}}
-          />
-        </View>
-
-        <Text style={SigninStyles.contaire2}>E-mail</Text>
-        <TextInput
-          style={SigninStyles.bord}
-          autoCorrect={false}
-          keyboardType={'email-address'}
-          value={Email}
-          onChangeText={text => setEmail(text)}
-        />
-        {!reg.test(Email) && Email.length > 0 && (
-          <Text style={SigninStyles.contaire98}>❌ E-mail non valide </Text>
-        )}
-
-        <Text style={SigninStyles.contaire2}>mot de passe</Text>
-        <TextInput
-          style={SigninStyles.bord}
-          autoCorrect={false}
-          secureTextEntry={HideShowPassWord}
-          value={PassWord}
-          onChangeText={text => setPassWord(text)}
-        />
-        <View style={{top: -56, left: 330}}>
-          <TouchableOpacity
-            onPress={() => setHideShowPassWord(!HideShowPassWord)}>
-            <Image
-              source={
-                HideShowPassWord
-                  ? require('../../../img/pngs/show.png')
-                  : require('../../../img/pngs/hide.png')
-              }
-            />
-          </TouchableOpacity>
-        </View>
-        <Text>
-          <Text
-            style={
-              PassWord.length >= 6 ? SigninStyles.texte : SigninStyles.texte2
-            }>
-            {' '}
-            Minimum 6 caractére{' '}
-          </Text>
-          <Text
-            style={
-              letter.test(PassWord) && PassWord.length > 0
-                ? SigninStyles.texte
-                : SigninStyles.texte2
-            }>
-            . Lettre
-          </Text>
-          <Text
-            style={
-              number.test(PassWord) && PassWord.length > 0
-                ? SigninStyles.texte
-                : SigninStyles.texte2
-            }>
-            . Chiffre
-          </Text>
-        </Text>
-
-        <TouchableOpacity
-          disabled={!Email || !PassWord || !reg.test(Email)}
-          onPress={Signin1}>
-          <Text
-            style={[
-              SigninStyles.Btn,
-              {
-                opacity:
-                  Email === '' ||
-                  PassWord === '' ||
-                  !reg.test(Email) ||
-                  !number.test(PassWord) ||
-                  !letter.test(PassWord) ||
-                  PassWord.length <= 6
-                    ? 0.6
-                    : 1,
-              },
-            ]}>
-            Enter
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+    <SafeAreaView style={SigninStyles.con}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#E1FAF6"
+        barStyle={'dark-content'}
+        showHideTransition={'slide'}
+        hidden={false}
+      />
+      {show ? (
+        <SimpleLottie
           onPress={() => {
-            navigation.navigate('Signup');
-          }}>
-          <Text style={SigninStyles.texte3}>Je n’ai pas de compte</Text>
-        </TouchableOpacity>
-        <ActivityIndicator
-          style={SigninStyles.activity}
-          size="large"
-          color="#229764"
-          animating={loading}
+            setShow(false);
+          }}
         />
-      </ScrollView>
-    </View>
+      ) : (
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <View style={{justifyContent: 'flex-start'}}>
+            <Text style={SigninStyles.contaire}>Se Connecter</Text>
+          </View>
+          <ScrollView style={SigninStyles.ScrollV}>
+            <View style={{alignItems: 'center'}}>
+              <Image
+                source={require('../../../img/logo.png')}
+                style={{width: 300, height: 300}}
+              />
+            </View>
+
+            <Text style={SigninStyles.contaire2}>E-mail</Text>
+            <TextInput
+              style={SigninStyles.bord}
+              autoCorrect={false}
+              keyboardType={'email-address'}
+              value={Email}
+              onChangeText={text => setEmail(text)}
+            />
+            {!reg.test(Email) && Email.length > 0 && (
+              <Text style={SigninStyles.contaire98}>❌ E-mail non valide </Text>
+            )}
+
+            <Text style={SigninStyles.contaire2}>mot de passe</Text>
+            <TextInput
+              style={SigninStyles.bord}
+              autoCorrect={false}
+              secureTextEntry={HideShowPassWord}
+              value={PassWord}
+              onChangeText={text => setPassWord(text)}
+            />
+            <View style={{top: -56, left: 330}}>
+              <TouchableOpacity
+                onPress={() => setHideShowPassWord(!HideShowPassWord)}>
+                <Image
+                  source={
+                    HideShowPassWord
+                      ? require('../../../img/pngs/show.png')
+                      : require('../../../img/pngs/hide.png')
+                  }
+                />
+              </TouchableOpacity>
+            </View>
+            <Text>
+              <Text
+                style={
+                  PassWord.length >= 6
+                    ? SigninStyles.texte
+                    : SigninStyles.texte2
+                }>
+                {' '}
+                Minimum 6 caractére{' '}
+              </Text>
+              <Text
+                style={
+                  letter.test(PassWord) && PassWord.length > 0
+                    ? SigninStyles.texte
+                    : SigninStyles.texte2
+                }>
+                . Lettre
+              </Text>
+              <Text
+                style={
+                  number.test(PassWord) && PassWord.length > 0
+                    ? SigninStyles.texte
+                    : SigninStyles.texte2
+                }>
+                . Chiffre
+              </Text>
+            </Text>
+
+            <TouchableOpacity
+              disabled={!Email || !PassWord || !reg.test(Email)}
+              onPress={Signin1}>
+              <Text
+                style={[
+                  SigninStyles.Btn,
+                  {
+                    opacity:
+                      Email === '' ||
+                      PassWord === '' ||
+                      !reg.test(Email) ||
+                      !number.test(PassWord) ||
+                      !letter.test(PassWord) ||
+                      PassWord.length <= 6
+                        ? 0.6
+                        : 1,
+                  },
+                ]}>
+                Enter
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Signup');
+              }}>
+              <Text style={SigninStyles.texte3}>Je n’ai pas de compte</Text>
+            </TouchableOpacity>
+            <ActivityIndicatorS isLoading={isLoading} />
+          </ScrollView>
+        </KeyboardAvoidingView>
+      )}
+    </SafeAreaView>
   );
 };
 

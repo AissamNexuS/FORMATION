@@ -1,4 +1,4 @@
-import {ScaledSheet} from 'react-native-size-matters';
+import {ScaledSheet} from 'react-native-size-matters/extend';
 
 const StylesDetails = ScaledSheet.create({
   V: {

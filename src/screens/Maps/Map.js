@@ -179,7 +179,7 @@ const MapViewPage = ({navigation}) => {
         style={{height: '100%', width: '100%'}}
         region={viewLocation}
         provider={PROVIDER_GOOGLE}
-        mapType={'standard'}
+        mapType={'hybrid'}
         userLocationPriority={'high'}
         userLocationUpdateInterval={500}
         userLocationFastestInterval={5000}

@@ -4,11 +4,14 @@ import {
   View,
   SafeAreaView,
   FlatList,
+  BackHandler,
   Image,
+  Modal,
+  ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import Api from '../../source/api';
-import ModalConf2 from '../component/modalglobal2';
+import ActivityIndicatorS from '../component/indicator/ActivityIndicatorS';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   selectPosts,
@@ -19,16 +22,14 @@ import {
 import moment from 'moment';
 import {setDetails} from './../../Redux/DetailsSlice';
 import HomeStyles from './HomeStyle';
-import {selectConnected} from '../../Redux/CnxSlice';
-import {setPath} from '../../Redux/pathSlice';
-
+import storage from '../../source/storage';
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
-
+  const [ShowModel, setShowModel] = useState(false);
   const [load, setLoad] = useState(true);
   const [count, setCount] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const postFromStorage = useSelector(selectPosts);
 
   useEffect(() => {
@@ -36,6 +37,17 @@ const Home = ({navigation}) => {
     LoadData(0);
 
     console.log(postFromStorage);
+  }, []);
+
+  const backAction = () => {
+    BackHandler.exitApp();
+  };
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+    return () => backHandler.remove();
   }, []);
 
   const onRefresh = () => {
@@ -51,6 +63,14 @@ const Home = ({navigation}) => {
     } else {
       setLoad(false);
     }
+  };
+  const LoadMore = () => {
+    return (
+      //Footer View with Load More button
+      <View style={HomeStyles.footer}>
+        <ActivityIndicator color="black" animating={load} />
+      </View>
+    );
   };
 
   const {unionBy} = require('lodash');
@@ -76,8 +96,22 @@ const Home = ({navigation}) => {
         console.log('errrrrror   ', e);
       });
   };
-
-  const [Show2, setShow2] = useState(false);
+  const Logout = () => {
+    setIsLoading(true);
+    Api()
+      .get('/api/v1/auth/signout')
+      .then(res => {
+        navigation.replace('Signin');
+        storage.setSession('');
+        console.log('looooooggggg ouuutututu', res);
+        setIsLoading(false);
+      })
+      .catch(e => {
+        console.log('loooooooggggg eerror   ', e);
+        displayToast(e.message);
+        setIsLoading(flase);
+      });
+  };
 
   const Item = props => {
     // console.log('description', props?.Des);
@@ -114,19 +148,6 @@ const Home = ({navigation}) => {
       </View>
     );
   };
-  //   const HandleNotification = props => {
-  //     PushNotification.localNotification({
-  //       channelId: 'Test-Chanel',
-  //       title: 'You ckliked no ' + props.title,
-  //       message: 'go ro details to get plus info',
-  //       bigText:
-  //         'la Description de la ' +
-  //         props.title +
-  //         ' desponible click ici to aller a la ' +
-  //         props.title,
-  //       color: 'green',
-  //     });
-  //   };
 
   const renderItem = ({item}) => {
     return (
@@ -149,25 +170,53 @@ const Home = ({navigation}) => {
         <View>
           <TouchableOpacity
             onPress={() => {
-              setShow2(true);
+              setShowModel(true);
             }}>
             <Image
               source={require('../../../img/pngs/1.png')}
               style={HomeStyles.logop2}
             />
           </TouchableOpacity>
-          <ModalConf2
-            modalVisible={Show2}
-            Onclose={() => {
-              setShow2(false);
-            }}
-            OnConf={() => {
-              setShow2(true);
-            }}
-            confirm={() => {
-              navigation.navigate('Signin');
-            }}
-          />
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={ShowModel}
+            onRequestClose={() => {
+              setShowModel(!ShowModel);
+            }}>
+            <View style={HomeStyles.modalView}>
+              <TouchableOpacity
+                style={HomeStyles.whiteDeleteBtn}
+                onPress={() => {
+                  setShowModel(false);
+                }}>
+                <Image
+                  style={HomeStyles.whiteDelete}
+                  source={require('../../../img/pngs/whiteDelete.png')}
+                />
+              </TouchableOpacity>
+              <View style={HomeStyles.modal}>
+                <Text style={HomeStyles.sortir}>Sortir</Text>
+                <Text style={HomeStyles.etes}>
+                  Êtes-vous sûr de vouloir vous déconnecter ?
+                </Text>
+                <View style={HomeStyles.buttonsView}>
+                  <TouchableOpacity
+                    style={HomeStyles.nonBtn}
+                    onPress={() => {
+                      setShowModel(false);
+                    }}>
+                    <Text style={HomeStyles.nonTxt}>Non</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={HomeStyles.confirmeBtn}
+                    onPress={Logout}>
+                    <Text style={HomeStyles.confirmeTxt}>Je confirme</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
         </View>
       </Text>
       <SafeAreaView style={HomeStyles.container}>
@@ -177,6 +226,7 @@ const Home = ({navigation}) => {
           keyExtractor={item => item._id}
           refreshing={isFetching}
           onRefresh={onRefresh}
+          ListFooterComponent={LoadMore}
           progressViewOffset={100}
           onEndReached={onEndReached}
         />
@@ -192,6 +242,7 @@ const Home = ({navigation}) => {
             />
           </TouchableOpacity>
         </View> */}
+        <ActivityIndicatorS isLoading={isLoading} />
       </SafeAreaView>
     </View>
   );

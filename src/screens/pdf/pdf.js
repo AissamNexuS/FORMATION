@@ -14,8 +14,6 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {displayToast} from '../../../lib/interactions';
 
 export default function PdfView({navigation, route}) {
-
-
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState();
 
@@ -131,11 +129,9 @@ export default function PdfView({navigation, route}) {
       <Pdf
         source={source}
         onLoadComplete={numberOfPages => {
-          // console.log(`Number of pages: ${numberOfPages}`);
           setPages(numberOfPages);
         }}
         onPageChanged={(page, numberOfPages) => {
-          console.log(`Current page: ${page}`);
           setPage(page);
         }}
         onError={error => {

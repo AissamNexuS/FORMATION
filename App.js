@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Signup from './src/screens/Signup/Signup';
 import Signin from './src/screens/Login/Signin';
 import Home from './src/screens/Home/Home';
+import Nologin from './src/screens/Nologin/Nologin';
 import Map from './src/screens/Maps/Map';
 import Share from './src/screens/Share/Share';
 import Détails from './src/screens/Détails/Détails';
@@ -78,8 +79,9 @@ export default function app() {
     <>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Signin"
+          initialRouteName="Nologin"
           screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Nologin" component={Nologin} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Signin" component={Signin} />
           <Stack.Screen name="HomeOR" component={ButonBarSelect} />
