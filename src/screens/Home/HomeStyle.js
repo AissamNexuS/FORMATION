@@ -9,6 +9,7 @@ const HomeStyles = ScaledSheet.create({
   V45: {
     paddingHorizontal: '20@s',
   },
+
   txt: {
     fontSize: 30,
     color: '#539D48',
@@ -70,17 +71,16 @@ const HomeStyles = ScaledSheet.create({
   container: {
     flex: 1,
   },
-  cipar: {
-    backgroundColor: '#AFAFAF',
-    borderRadius: 1,
-    padding: '1@s',
-    marginVertical: '9@s',
-    opacity: 0.3,
-  },
 
+  footer: {
+    padding: '10@s',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
   modal: {
-    height: '280@vs',
-    width: '330@s',
+    height: '311@vs',
+    width: '397@s',
     backgroundColor: 'white',
     position: 'absolute',
     top: '30%',
@@ -116,7 +116,7 @@ const HomeStyles = ScaledSheet.create({
   buttonsView: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: '30@s',
+    marginTop: '60@s',
   },
   nonBtn: {
     width: '160@s',

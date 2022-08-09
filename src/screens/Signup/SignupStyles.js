@@ -13,10 +13,10 @@ const SignupStyles = ScaledSheet.create({
     fontSize: 18,
   },
   texte3: {
-    color: '#7d7d7d',
-    alignItems: 'stretch',
-    fontSize: 18,
-    marginVertical: '10@s',
+    fontWeight: '500',
+    fontSize: '18@s',
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
   ScrollV: {
     marginHorizontal: '20@s',

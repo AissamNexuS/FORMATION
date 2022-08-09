@@ -41,6 +41,7 @@ export default function app() {
           tabBarLabelStyle: {fontWeight: '500', fontSize: 14, marginBottom: 6},
           tabBarActiveTintColor: '#268C63',
           tabBarInactiveTintColor: 'grey',
+          tabBarHideOnKeyboard: true,
           tabBarStyle: {
             height: Platform.OS === 'android' ? 60 : 90,
             backgroundColor: '#E1FAF6',

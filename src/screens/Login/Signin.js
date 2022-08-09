@@ -23,11 +23,17 @@ const Signin = ({navigation}) => {
   const [HideShowPassWord, setHideShowPassWord] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
-
   const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const number = /[0-9]/;
   const letter = /[a-zA-Z]/;
-
+  function validate(str) {
+    const reg1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg1.test(str) === false) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   useEffect(() => {
     getEmail();
     getPassword();
@@ -164,10 +170,10 @@ const Signin = ({navigation}) => {
             <Text style={SigninStyles.contaire}>Se Connecter</Text>
           </View>
           <ScrollView style={SigninStyles.ScrollV}>
-            <View style={{alignItems: 'center'}}>
+            <View>
               <Image
                 source={require('../../../img/logo.png')}
-                style={{width: 300, height: 300}}
+                style={SigninStyles.icon}
               />
             </View>
 
@@ -197,13 +203,13 @@ const Signin = ({navigation}) => {
                 <Image
                   source={
                     HideShowPassWord
-                      ? require('../../../img/pngs/show.png')
-                      : require('../../../img/pngs/hide.png')
+                      ? require('../../../img/pngs/openEye.png')
+                      : require('../../../img/pngs/closedEye.png')
                   }
                 />
               </TouchableOpacity>
             </View>
-            <Text>
+            <Text style={SigninStyles.text}>
               <Text
                 style={
                   PassWord.length >= 6
@@ -233,24 +239,23 @@ const Signin = ({navigation}) => {
 
             <TouchableOpacity
               disabled={!Email || !PassWord || !reg.test(Email)}
-              onPress={Signin1}>
-              <Text
-                style={[
-                  SigninStyles.Btn,
-                  {
-                    opacity:
-                      Email === '' ||
-                      PassWord === '' ||
-                      !reg.test(Email) ||
-                      !number.test(PassWord) ||
-                      !letter.test(PassWord) ||
-                      PassWord.length <= 6
-                        ? 0.6
-                        : 1,
-                  },
-                ]}>
-                Enter
-              </Text>
+              onPress={Signin1}
+              style={[
+                SigninStyles.Btn,
+                {
+                  backgroundColor:
+                    !validate(Email) ||
+                    Email === '' ||
+                    PassWord === '' ||
+                    !reg.test(Email) ||
+                    !number.test(PassWord) ||
+                    !letter.test(PassWord) ||
+                    PassWord.length <= 6
+                      ? '#80CDC1'
+                      : '#268C63',
+                },
+              ]}>
+              <Text style={SigninStyles.EnterTxt}>Enter</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
