@@ -9,6 +9,7 @@ import {
   BackHandler,
   Image,
   StatusBar,
+  ActivityIndicator,
   KeyboardAvoidingView,
 } from 'react-native';
 import Api from './../../source/api';
@@ -23,17 +24,12 @@ const Signin = ({navigation}) => {
   const [HideShowPassWord, setHideShowPassWord] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
+  const [MShow, setMshow] = useState(false);
+
   const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const number = /[0-9]/;
   const letter = /[a-zA-Z]/;
-  function validate(str) {
-    const reg1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    if (reg1.test(str) === false) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+
   useEffect(() => {
     getEmail();
     getPassword();
@@ -112,9 +108,7 @@ const Signin = ({navigation}) => {
   const Signin1 = () => {
     setEmail2(Email);
     setPassWord2(PassWord);
-    setIsLoading(true);
-    setShow(true);
-
+    setMshow(true);
     Api()
       .post('/api/v1/auth/signin', {
         username: Email,
@@ -122,9 +116,14 @@ const Signin = ({navigation}) => {
         oneSignalPlayerId: '',
       })
       .then(res => {
-        storeData();
+        console.log('res ===>', res);
+
+        // setShow(true);
+        setIsLoading(true);
+        storeData(res);
+        setMshow(false);
+        setShow(false);
         setIsLoading(false);
-        console.log('res', res);
         navigation.replace('HomeOR');
       })
       .catch(e => {
@@ -132,20 +131,15 @@ const Signin = ({navigation}) => {
         console.log('errrrrror   ', e.message);
         displayToast(e.message);
         setIsLoading(false);
+        setMshow(false);
       });
   };
-  const storeData = async () => {
+  const storeData = async res => {
     try {
-      await AsyncStorage.setItem('email', Email);
+      await AsyncStorage.setItem('infoUser', res);
       console.log('Sescuful 1');
     } catch (e) {
       console.log('err 1');
-    }
-    try {
-      await AsyncStorage.setItem('mdp', PassWord);
-      console.log('Sescuful 2');
-    } catch (e) {
-      console.log('Err 2');
     }
   };
   return (
@@ -238,14 +232,14 @@ const Signin = ({navigation}) => {
             </Text>
 
             <TouchableOpacity
-              disabled={!Email || !PassWord || !reg.test(Email)}
-              onPress={Signin1}
+              disabled={!Email || !PassWord || !reg.test(Email) || MShow}
+              onPress={() => Signin1()}
               style={[
                 SigninStyles.Btn,
                 {
                   backgroundColor:
-                    !validate(Email) ||
                     Email === '' ||
+                    MShow ||
                     PassWord === '' ||
                     !reg.test(Email) ||
                     !number.test(PassWord) ||
@@ -255,7 +249,15 @@ const Signin = ({navigation}) => {
                       : '#268C63',
                 },
               ]}>
-              <Text style={SigninStyles.EnterTxt}>Enter</Text>
+              {MShow ? (
+                <ActivityIndicator
+                  style={{marginLeft: 10}}
+                  color="#000"
+                  size="large"
+                />
+              ) : (
+                <Text style={SigninStyles.EnterTxt}>Enter</Text>
+              )}
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {

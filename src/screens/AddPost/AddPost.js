@@ -9,7 +9,7 @@ import {
   TextInput,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import ModalConf from '../component/modalglobal';
+import ModalConf from './modalglobal';
 import StylesDetails from './AddPostStyle';
 
 export default function Detais({navigation}) {

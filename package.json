@@ -25,6 +25,7 @@
     "react-native": "0.67.1",
     "react-native-awesome-alerts": "^2.0.0",
     "react-native-calendars": "^1.1285.0",
+    "react-native-dropdown-picker": "^5.4.2",
     "react-native-fast-toast": "^3.0.1",
     "react-native-google-places-autocomplete": "^2.4.1",
     "react-native-image-picker": "^4.8.4",

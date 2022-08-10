@@ -23,6 +23,7 @@ import moment from 'moment';
 import {setDetails} from './../../Redux/DetailsSlice';
 import HomeStyles from './HomeStyle';
 import storage from '../../source/storage';
+
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const [ShowModel, setShowModel] = useState(false);
@@ -39,16 +40,16 @@ const Home = ({navigation}) => {
     console.log(postFromStorage);
   }, []);
 
-  const backAction = () => {
-    BackHandler.exitApp();
-  };
-  useEffect(() => {
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
-    return () => backHandler.remove();
-  }, []);
+  // const backAction = () => {
+  //   BackHandler.exitApp();
+  // };
+  // useEffect(() => {
+  //   const backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     backAction,
+  //   );
+  //   return () => backHandler.remove();
+  // }, []);
 
   const onRefresh = () => {
     setLoad(false);

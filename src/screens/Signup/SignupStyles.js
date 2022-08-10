@@ -4,13 +4,57 @@ const SignupStyles = ScaledSheet.create({
   texte: {
     color: '#229764',
     fontSize: 18,
-    alignItems: 'stretch',
     fontWeight: '600',
   },
   texte2: {
     color: '#000',
     alignItems: 'stretch',
     fontSize: 18,
+  },
+  contaire2: {
+    color: '#373737',
+    fontSize: 18,
+    fontWeight: 'bold',
+    bottom: '10@s',
+    left: '10@s',
+  },
+  dropDown: {
+    borderWidth: '0.4@s',
+    elevation: 6,
+    backgroundColor: '#FFFFd0',
+    height: '74@vs',
+    width: '348@s',
+    left: '10@s',
+  },
+  EnterTxt: {
+    color: '#FFFFFF',
+    fontSize: '24@s',
+    fontWeight: '600',
+    opacity: '1@s',
+  },
+  typeInput: {
+    height: '74@vs',
+    width: '348@s',
+    left: '10@s',
+    backgroundColor: '#FFFFF0',
+    borderRadius: '8@s',
+    color: '#373737',
+    fontSize: '18@s',
+    fontWeight: '600',
+    opacity: '1@s',
+
+    alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: '0@s',
+      height: '5@vs',
+    },
+    shadowOpacity: '0.25@s',
+    shadowRadius: '3.84@s',
+    elevation: '5@s',
+
+    borderWidth: '0@s',
   },
   texte3: {
     fontWeight: '500',
@@ -21,10 +65,8 @@ const SignupStyles = ScaledSheet.create({
   ScrollV: {
     marginHorizontal: '20@s',
   },
-  activity: {
-    position: 'absolute',
-    top: '40%',
-    left: '45%',
+  EmV: {
+    bottom: '0@s',
   },
   con: {
     flex: 1,
@@ -40,7 +82,6 @@ const SignupStyles = ScaledSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     padding: '15@s',
-    marginVertical: '10@vs',
   },
 
   contaire: {
@@ -53,8 +94,16 @@ const SignupStyles = ScaledSheet.create({
     fontSize: 10,
     fontWeight: '500',
   },
+
   TxtB: {
-    left: 10,
+    left: '13@s',
+  },
+  NomSt: {
+    flexDirection: 'row',
+  },
+  PrenomS: {
+    left: '190@s',
+    top: '-15@s',
   },
 });
 

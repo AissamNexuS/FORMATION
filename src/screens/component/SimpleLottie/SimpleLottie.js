@@ -9,7 +9,6 @@ import {
   Easing,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import {useState} from 'react';
 import styles from './Styles';
 export default function SimpleLottie(props) {
   const animationProgress = useRef(new Animated.Value(0));
