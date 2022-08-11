@@ -15,16 +15,17 @@ const SignupStyles = ScaledSheet.create({
     color: '#373737',
     fontSize: 18,
     fontWeight: 'bold',
-    bottom: '10@s',
+    bottom: '15@s',
     left: '10@s',
   },
   dropDown: {
     borderWidth: '0.4@s',
     elevation: 6,
     backgroundColor: '#FFFFd0',
-    height: '74@vs',
+    height: '84@vs',
     width: '348@s',
     left: '10@s',
+    top: '58@s',
   },
   EnterTxt: {
     color: '#FFFFFF',
@@ -42,7 +43,7 @@ const SignupStyles = ScaledSheet.create({
     fontSize: '18@s',
     fontWeight: '600',
     opacity: '1@s',
-
+    top: '-10@s',
     alignItems: 'center',
 
     shadowColor: '#000',
@@ -56,10 +57,16 @@ const SignupStyles = ScaledSheet.create({
 
     borderWidth: '0@s',
   },
+  ChifrBottom: {
+    bottom: '29@s',
+    left: '10@s',
+  },
   texte3: {
     fontWeight: '500',
     fontSize: '18@s',
     color: 'blue',
+    top: '10@s',
+
     textDecorationLine: 'underline',
   },
   ScrollV: {
@@ -70,6 +77,10 @@ const SignupStyles = ScaledSheet.create({
   },
   con: {
     flex: 1,
+    padding: '10@s',
+    backgroundColor: '#E1FAF6',
+  },
+  con323: {
     padding: '10@s',
     backgroundColor: '#E1FAF6',
   },
@@ -85,8 +96,8 @@ const SignupStyles = ScaledSheet.create({
   },
 
   contaire: {
-    color: '#539D48',
-    fontSize: 34,
+    color: '#268C63',
+    fontSize: 30,
     fontWeight: 'bold',
   },
   contaire98: {

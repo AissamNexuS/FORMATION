@@ -117,8 +117,6 @@ const Signin = ({navigation}) => {
       })
       .then(res => {
         console.log('res ===>', res);
-
-        // setShow(true);
         setIsLoading(true);
         storeData(res);
         setMshow(false);
@@ -135,11 +133,23 @@ const Signin = ({navigation}) => {
       });
   };
   const storeData = async res => {
+    // try {
+    //   await AsyncStorage.setItem('infoUser', res);
+    //   console.log('Sescuful 1');
+    // } catch (e) {
+    //   console.log('err 1');
+    // }
     try {
-      await AsyncStorage.setItem('infoUser', res);
-      console.log('Sescuful 1');
+      await AsyncStorage.setItem('email', Email);
+      console.log('ses email data');
     } catch (e) {
-      console.log('err 1');
+      console.log('err  email data');
+    }
+    try {
+      await AsyncStorage.setItem('PassWord', PassWord);
+      console.log('se PassWord data');
+    } catch (e) {
+      console.log('err PassWord data');
     }
   };
   return (

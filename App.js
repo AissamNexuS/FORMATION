@@ -39,7 +39,7 @@ export default function app() {
           headerBackground: 'green',
           tabBarItemStyle: {backgroundColor: '#E1FAF6'},
           tabBarLabelStyle: {fontWeight: '500', fontSize: 14, marginBottom: 6},
-          tabBarActiveTintColor: '#268C63',
+          tabBarActiveTintColor: '#000000',
           tabBarInactiveTintColor: 'grey',
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
@@ -56,7 +56,7 @@ export default function app() {
             } else if (rn === MapName) {
               iconName = focused ? 'map' : 'map-outline';
             } else if (rn === ShareName) {
-              iconName = focused ? 'share' : 'share-outline';
+              iconName = focused ? 'share-social' : 'share-social-outline';
             }
 
             // You can return any component that you like here!

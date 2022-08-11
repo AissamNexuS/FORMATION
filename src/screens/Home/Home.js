@@ -32,6 +32,7 @@ const Home = ({navigation}) => {
   const [isFetching, setIsFetching] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const postFromStorage = useSelector(selectPosts);
+  const [MShow, setMshow] = useState(false);
 
   useEffect(() => {
     dispatch(initial([]));
@@ -98,19 +99,19 @@ const Home = ({navigation}) => {
       });
   };
   const Logout = () => {
-    setIsLoading(true);
+    setMshow(true);
     Api()
       .get('/api/v1/auth/signout')
       .then(res => {
         navigation.replace('Signin');
         storage.setSession('');
         console.log('looooooggggg ouuutututu', res);
-        setIsLoading(false);
+        setMshow(false);
       })
       .catch(e => {
         console.log('loooooooggggg eerror   ', e);
         displayToast(e.message);
-        setIsLoading(flase);
+        setMshow(false);
       });
   };
 
@@ -210,9 +211,23 @@ const Home = ({navigation}) => {
                     <Text style={HomeStyles.nonTxt}>Non</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    style={HomeStyles.confirmeBtn}
+                    disabled={MShow}
+                    style={[
+                      HomeStyles.confirmeBtn,
+                      {
+                        backgroundColor: MShow ? '#80CDC1' : '#268C63',
+                      },
+                    ]}
                     onPress={Logout}>
-                    <Text style={HomeStyles.confirmeTxt}>Je confirme</Text>
+                    {MShow ? (
+                      <ActivityIndicator
+                        style={{marginLeft: 10}}
+                        color="#000"
+                        size="large"
+                      />
+                    ) : (
+                      <Text style={HomeStyles.confirmeTxt}>Je confirme</Text>
+                    )}
                   </TouchableOpacity>
                 </View>
               </View>

@@ -15,7 +15,7 @@ const HomeStyles = ScaledSheet.create({
     color: '#539D48',
     fontWeight: 'bold',
     left: '10@s',
-    top: '-12@s',
+    top: '-6@s',
   },
   logop1: {
     width: '34@s',
@@ -23,10 +23,9 @@ const HomeStyles = ScaledSheet.create({
     left: '90@s',
   },
   logop2: {
-    width: '30@s',
-    height: '30@s',
-    left: '120@s',
-    top: '12@s',
+    width: '40@s',
+    height: '40@s',
+    left: '140@s',
   },
   logop3: {
     width: '49.92@s',
