@@ -14,30 +14,57 @@ const StylesDetails = ScaledSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-  V33: {
-    alignSelf: 'center',
+  btnBack: {
+    height: '60@vs',
+    width: '60@s',
+    backgroundColor: '#FFFFFf',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: '8@s',
-    width: '210@s',
-    padding: '5@s',
+    margin: '2@s',
   },
-
+  iconPdf: {
+    height: '50@vs',
+    width: '50@s',
+  },
+  btnPdf: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '70@vs',
+    width: '60@s',
+    left: '347@s',
+    bottom: '80@s',
+    backgroundColor: '#C1C1C1',
+    borderRadius: '8@s',
+    marginRight: '23@s',
+    marginVertical: '10@s',
+  },
   txt: {
     fontSize: '30@s',
     color: '#268C63',
     fontWeight: 'bold',
     left: '10@s',
   },
-
-  Tel2: {
+  Tel: {
     color: '#373737',
-    fontWeight: '700',
-    fontSize: '20@s',
+    fontSize: 20,
+    fontWeight: '600',
+  },
+  Tel2: {
+    color: '#AAAAAA',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  icon: {
+    height: '30@vs',
+    width: '30@s',
   },
   Tel09: {
     color: '#373737',
     fontWeight: '600',
-    fontSize: '10@s',
+    fontSize: '14@s',
     left: '10@s',
+    top: '-80@s',
   },
 
   Tel5: {
@@ -60,6 +87,10 @@ const StylesDetails = ScaledSheet.create({
     padding: '15@s',
     marginVertical: '10@s',
     alignSelf: 'center',
+  },
+  Vpage: {
+    padding: 5,
+    margin: '10@s',
   },
 });
 export default StylesDetails;

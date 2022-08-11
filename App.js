@@ -8,6 +8,7 @@ import Nologin from './src/screens/Nologin/Nologin';
 import Map from './src/screens/Maps/Map';
 import Share from './src/screens/Share/Share';
 import Détails from './src/screens/Détails/Détails';
+import Notification from './src/screens/Notification/Notification';
 import AddPost from './src/screens/AddPost/AddPost';
 import Nocnx from './src/screens/NoCnx/Nocnx';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -24,6 +25,7 @@ const Tab = createBottomTabNavigator();
 const HomeName = 'Home';
 const MapName = 'Map';
 const ShareName = 'Share';
+const NotificationName = 'Notification';
 
 export default function app() {
   const dispatch = useDispatch();
@@ -57,6 +59,8 @@ export default function app() {
               iconName = focused ? 'map' : 'map-outline';
             } else if (rn === ShareName) {
               iconName = focused ? 'share-social' : 'share-social-outline';
+            } else if (rn === NotificationName) {
+              iconName = focused ? 'notifications' : 'notifications-outline';
             }
 
             // You can return any component that you like here!
@@ -64,6 +68,7 @@ export default function app() {
           },
         })}>
         <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Map" component={Map} />
         <Tab.Screen name="Share" component={Share} />
       </Tab.Navigator>

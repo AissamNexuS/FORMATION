@@ -9,6 +9,7 @@ import {
   Modal,
   ActivityIndicator,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import Api from '../../source/api';
 import ActivityIndicatorS from '../component/indicator/ActivityIndicatorS';
@@ -70,7 +71,7 @@ const Home = ({navigation}) => {
     return (
       //Footer View with Load More button
       <View style={HomeStyles.footer}>
-        <ActivityIndicator color="black" animating={load} />
+        <ActivityIndicator color="black" size="small" animating={load} />
       </View>
     );
   };
@@ -118,7 +119,14 @@ const Home = ({navigation}) => {
   const Item = props => {
     // console.log('description', props?.Des);
     return (
-      <View>
+      <SafeAreaView>
+        <StatusBar
+          animated={true}
+          backgroundColor="#E1FAF6"
+          barStyle={'dark-content'}
+          showHideTransition={'slide'}
+          hidden={false}
+        />
         <View>
           <TouchableOpacity
             onPress={() => {
@@ -130,7 +138,7 @@ const Home = ({navigation}) => {
               source={{
                 uri: `https://api.formation.flexi-apps.com${props?.image}`,
               }}
-              style={{width: 427.5, height: 285, borderRadius: 10}}
+              style={{width: 395.5, height: 285, borderRadius: 10}}
             />
           </TouchableOpacity>
         </View>
@@ -146,8 +154,8 @@ const Home = ({navigation}) => {
               : props?.Des}{' '}
           </Text>
         </View>
-        <View style={HomeStyles.cipar}></View>
-      </View>
+        <View style={HomeStyles.endItem} />
+      </SafeAreaView>
     );
   };
 
@@ -165,7 +173,7 @@ const Home = ({navigation}) => {
   };
 
   return (
-    <View style={HomeStyles.V}>
+    <SafeAreaView style={HomeStyles.V}>
       <Text style={HomeStyles.txt}>
         {' '}
         Fil D'actualité
@@ -260,7 +268,7 @@ const Home = ({navigation}) => {
         </View> */}
         <ActivityIndicatorS isLoading={isLoading} />
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 };
 

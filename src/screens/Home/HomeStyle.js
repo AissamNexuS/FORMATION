@@ -3,19 +3,19 @@ import {ScaledSheet} from 'react-native-size-matters/extend';
 const HomeStyles = ScaledSheet.create({
   V: {
     flex: 1,
-    padding: '10@s',
+    padding: 10,
+    paddingHorizontal: '25@s',
     backgroundColor: '#E1FAF6',
   },
   V45: {
     paddingHorizontal: '20@s',
   },
-
   txt: {
     fontSize: 30,
     color: '#539D48',
     fontWeight: 'bold',
     left: '10@s',
-    top: '-6@s',
+    top: '-10@s',
   },
   logop1: {
     width: '34@s',
@@ -23,9 +23,10 @@ const HomeStyles = ScaledSheet.create({
     left: '90@s',
   },
   logop2: {
-    width: '40@s',
-    height: '40@s',
-    left: '140@s',
+    width: '34@s',
+    height: '34@s',
+    left: '130@s',
+    top: '0@s',
   },
   logop3: {
     width: '49.92@s',
@@ -44,6 +45,7 @@ const HomeStyles = ScaledSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
+
   Tel2: {
     color: '#373737',
     fontWeight: '600',
@@ -71,12 +73,6 @@ const HomeStyles = ScaledSheet.create({
     flex: 1,
   },
 
-  footer: {
-    padding: '10@s',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
   modal: {
     height: '311@vs',
     width: '397@s',
@@ -152,6 +148,14 @@ const HomeStyles = ScaledSheet.create({
     position: 'absolute',
     right: '0@s',
     top: '180@s',
+  },
+  endItem: {
+    width: '356@s',
+    height: '2@vs',
+    borderRadius: 40,
+    margin: '10@s',
+    top: '2@s',
+    backgroundColor: '#C6C6C6',
   },
 });
 

@@ -103,28 +103,39 @@ export default function PdfView({navigation, route}) {
     <SafeAreaView style={styles.container}>
       <StatusBar
         animated={true}
-        backgroundColor="#E1FAF6"
-        barStyle={'dark-content'}
+        backgroundColor="#000000"
+        barStyle={'light-content'}
         showHideTransition={'slide'}
         hidden={false}
       />
-
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'space-around',
+          justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text style={styles.pagesTxt}>
-          {page} Sur {pages}
+        <TouchableOpacity
+          style={styles.Back}
+          onPress={() => {
+            navigation.navigate('Détails', {item: item});
+          }}>
+          <Image
+            style={styles.Icons}
+            source={require('../../../img/pngs/chevronLeft.png')}
+          />
+        </TouchableOpacity>
+
+        <Text style={styles.NumberPage}>
+          {page}/{pages}
         </Text>
+
+        <TouchableOpacity style={styles.Back} onPress={fileDownload}>
+          <Image
+            style={styles.Icons}
+            source={require('../../../img/pngs/download.png')}
+          />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.btnBack} onPress={fileDownload}>
-        <Image
-          style={styles.icon}
-          source={require('../../../img/pngs/download.png')}
-        />
-      </TouchableOpacity>
 
       <Pdf
         source={source}
@@ -151,35 +162,32 @@ const styles = ScaledSheet.create({
     flex: 1,
     height: '100%',
     justifyContent: 'flex-start',
-    backgroundColor: '#E1FAF6',
+    backgroundColor: 'black',
   },
   pdf: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#E1FAF6',
-    marginBottom: '70@s',
+    backgroundColor: 'black',
+    marginBottom: '50@s',
   },
 
-  btnBack: {
+  Back: {
     height: '50@vs',
     width: '50@s',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#E1FAF6',
+    backgroundColor: 'white',
     borderRadius: '8@s',
     margin: '5@s',
-    top: '10@s',
-    left: '147@s',
   },
-  icon: {
+  Icons: {
     height: '30@vs',
     width: '30@s',
   },
 
-  pagesTxt: {
+  NumberPage: {
     fontSize: '15@s',
-    color: '#000',
+    color: 'white',
     fontWeight: '500',
-    top: '3%',
   },
 });
