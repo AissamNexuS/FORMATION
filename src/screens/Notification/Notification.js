@@ -1,48 +1,54 @@
-import {StyleSheet, View} from 'react-native';
+import {
+  StyleSheet,
+  FlatList,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+  ActivityIndicator,
+  StatusBar,
+} from 'react-native';
 import React from 'react';
-import {Button} from '@rneui/themed';
+import {Notifs} from './notif';
+import styles from './NotificationStyles';
 
 const Notification = ({navigation}) => {
+  const Itmss = ({item, titre, text}) => (
+    <TouchableOpacity style={styles.item} onPress={() => {}}>
+      <View style={styles.titreTxtView}>
+        <Text style={styles.titre}>{titre}</Text>
+        <Text style={styles.text}>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  const Render = ({item}) => {
+    return (
+      <Itmss item={item} id={item.id} titre={item.titre} text={item.text} />
+    );
+  };
+
   return (
-    <View style={styles.container}>
-      <Button
-        title="Notification en mantenece"
-        color="error"
-        type="solid"
-        size="lg"
-        icon={{
-          name: 'notifications',
-          type: 'font-awnsome',
-          color: '#000',
-          size: 30,
-        }}
-        buttonStyle={{
-          borderRadius: 29,
-          backgroundColor: 'rgba(255, 0, 0, 0.7)',
-          borderWidth: 10,
-          borderColor: 'rgba(255, 0, 0, 0.3)',
-        }}
-        containerStyle={{
-          width: 340,
-        }}
-        onPress={() => {
-          navigation.goBack();
-        }}
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#FFFFFF"
+        barStyle={'dark-content'}
+        showHideTransition={'slide'}
+        hidden={false}
       />
-    </View>
+
+      <View style={styles.flat}>
+        <FlatList
+          data={Notifs}
+          renderItem={Render}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          progressViewOffset={100}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-    padding: 20,
-    borderRadius: 20,
-    borderWidth: 3,
-    borderColor: '#E0E0E0',
-  },
-});
 export default Notification;

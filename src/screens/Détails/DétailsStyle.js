@@ -77,7 +77,11 @@ const StylesDetails = ScaledSheet.create({
     fontSize: '18@s',
     color: '#373737',
   },
-
+  imag: {
+    width: '408@s',
+    height: '235@s',
+    borderRadius: 8,
+  },
   Btn: {
     backgroundColor: '#268C63',
     color: '#FFF',

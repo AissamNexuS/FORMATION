@@ -32,7 +32,7 @@ export default function Detais({navigation}) {
             source={{
               uri: `https://api.formation.flexi-apps.com${item.imageUrl}`,
             }}
-            style={{width: 427.5, height: 235, borderRadius: 8}}
+            style={StylesDetails.imag}
           />
         </View>
 

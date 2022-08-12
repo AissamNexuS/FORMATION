@@ -89,7 +89,9 @@ export default function PdfView({navigation, route}) {
         //Showing alert after successful downloading
         console.log('res -> ', JSON.stringify(res));
         if (Platform.OS !== 'ios') {
-          displayToast('Bien téléchagé dans votre dossier de téléchargement');
+          displayToast(
+            "Merci d'avoir téléchagé le document allez à votre dossier de téléchargement",
+          );
         } else {
           RNFetchBlob.ios.openDocument(res.data);
         }

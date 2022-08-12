@@ -67,7 +67,7 @@ const Signup = ({navigation}) => {
         <ScrollView style={SignupStyles.ScrollV}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Userinput
-              name="Nom                        "
+              name="Nom                      "
               value={Name}
               setValue={setName}
               autoCapitalize="words"
@@ -75,7 +75,7 @@ const Signup = ({navigation}) => {
             />
 
             <Userinput
-              name="Prénom                    "
+              name="Prénom                 "
               value={Prenom}
               setValue={setPrenom}
               autoCapitalize="words"
@@ -148,7 +148,7 @@ const Signup = ({navigation}) => {
             secureTextEntry={HideShowPassWord}
             autoComplteType="password"
           />
-          <View style={{top: -57, left: 340}}>
+          <View style={SignupStyles.Eye}>
             <TouchableOpacity
               onPress={() => setHideShowPassWord(!HideShowPassWord)}>
               <Image

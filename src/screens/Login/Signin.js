@@ -192,90 +192,91 @@ const Signin = ({navigation}) => {
             {!reg.test(Email) && Email.length > 0 && (
               <Text style={SigninStyles.contaire98}>❌ E-mail non valide </Text>
             )}
+            <View style={SigninStyles.PASWV}>
+              <Text style={SigninStyles.contaire2}>mot de passe</Text>
+              <TextInput
+                style={SigninStyles.bord}
+                autoCorrect={false}
+                secureTextEntry={HideShowPassWord}
+                value={PassWord}
+                onChangeText={text => setPassWord(text)}
+              />
+              <View style={SigninStyles.Eye}>
+                <TouchableOpacity
+                  onPress={() => setHideShowPassWord(!HideShowPassWord)}>
+                  <Image
+                    source={
+                      HideShowPassWord
+                        ? require('../../../img/pngs/openEye.png')
+                        : require('../../../img/pngs/closedEye.png')
+                    }
+                  />
+                </TouchableOpacity>
+              </View>
+              <Text style={SigninStyles.text}>
+                <Text
+                  style={
+                    PassWord.length >= 6
+                      ? SigninStyles.texte
+                      : SigninStyles.texte2
+                  }>
+                  {' '}
+                  Minimum 6 caractére{' '}
+                </Text>
+                <Text
+                  style={
+                    letter.test(PassWord) && PassWord.length > 0
+                      ? SigninStyles.texte
+                      : SigninStyles.texte2
+                  }>
+                  . Lettre
+                </Text>
+                <Text
+                  style={
+                    number.test(PassWord) && PassWord.length > 0
+                      ? SigninStyles.texte
+                      : SigninStyles.texte2
+                  }>
+                  . Chiffre
+                </Text>
+              </Text>
 
-            <Text style={SigninStyles.contaire2}>mot de passe</Text>
-            <TextInput
-              style={SigninStyles.bord}
-              autoCorrect={false}
-              secureTextEntry={HideShowPassWord}
-              value={PassWord}
-              onChangeText={text => setPassWord(text)}
-            />
-            <View style={{top: -56, left: 330}}>
               <TouchableOpacity
-                onPress={() => setHideShowPassWord(!HideShowPassWord)}>
-                <Image
-                  source={
-                    HideShowPassWord
-                      ? require('../../../img/pngs/openEye.png')
-                      : require('../../../img/pngs/closedEye.png')
-                  }
-                />
+                disabled={!Email || !PassWord || !reg.test(Email) || MShow}
+                onPress={() => Signin1()}
+                style={[
+                  SigninStyles.Btn,
+                  {
+                    backgroundColor:
+                      Email === '' ||
+                      MShow ||
+                      PassWord === '' ||
+                      !reg.test(Email) ||
+                      !number.test(PassWord) ||
+                      !letter.test(PassWord) ||
+                      PassWord.length <= 6
+                        ? '#80CDC1'
+                        : '#268C63',
+                  },
+                ]}>
+                {MShow ? (
+                  <ActivityIndicator
+                    style={{marginLeft: 10}}
+                    color="#000"
+                    size="large"
+                  />
+                ) : (
+                  <Text style={SigninStyles.EnterTxt}>Enter</Text>
+                )}
               </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Signup');
+                }}>
+                <Text style={SigninStyles.texte3}>Je n’ai pas de compte</Text>
+              </TouchableOpacity>
+              <ActivityIndicatorS isLoading={isLoading} />
             </View>
-            <Text style={SigninStyles.text}>
-              <Text
-                style={
-                  PassWord.length >= 6
-                    ? SigninStyles.texte
-                    : SigninStyles.texte2
-                }>
-                {' '}
-                Minimum 6 caractére{' '}
-              </Text>
-              <Text
-                style={
-                  letter.test(PassWord) && PassWord.length > 0
-                    ? SigninStyles.texte
-                    : SigninStyles.texte2
-                }>
-                . Lettre
-              </Text>
-              <Text
-                style={
-                  number.test(PassWord) && PassWord.length > 0
-                    ? SigninStyles.texte
-                    : SigninStyles.texte2
-                }>
-                . Chiffre
-              </Text>
-            </Text>
-
-            <TouchableOpacity
-              disabled={!Email || !PassWord || !reg.test(Email) || MShow}
-              onPress={() => Signin1()}
-              style={[
-                SigninStyles.Btn,
-                {
-                  backgroundColor:
-                    Email === '' ||
-                    MShow ||
-                    PassWord === '' ||
-                    !reg.test(Email) ||
-                    !number.test(PassWord) ||
-                    !letter.test(PassWord) ||
-                    PassWord.length <= 6
-                      ? '#80CDC1'
-                      : '#268C63',
-                },
-              ]}>
-              {MShow ? (
-                <ActivityIndicator
-                  style={{marginLeft: 10}}
-                  color="#000"
-                  size="large"
-                />
-              ) : (
-                <Text style={SigninStyles.EnterTxt}>Enter</Text>
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Signup');
-              }}>
-              <Text style={SigninStyles.texte3}>Je n’ai pas de compte</Text>
-            </TouchableOpacity>
-            <ActivityIndicatorS isLoading={isLoading} />
           </ScrollView>
         </KeyboardAvoidingView>
       )}

@@ -187,7 +187,7 @@ const MapViewPage = ({navigation}) => {
         showsMyLocationButton={true}
         showsCompass={true}
         showsUserLocation={true}>
-        <Marker coordinate={viewLocation} pinColor={'#E1FAF6'} />
+        <Marker coordinate={viewLocation} pinColor={'#00F'} />
       </MapView>
       <GooglePlacesInput />
       {Platform.OS === 'android' && (

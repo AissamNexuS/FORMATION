@@ -3,7 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters/extend';
 const SigninStyles = ScaledSheet.create({
   texte: {
     color: '#229764',
-    fontSize: 18,
+    fontSize: 16,
     alignItems: 'stretch',
     fontWeight: 'bold',
   },
@@ -18,6 +18,11 @@ const SigninStyles = ScaledSheet.create({
     fontWeight: '600',
     opacity: '1@s',
   },
+  Eye: {
+    top: '-56@s',
+    left: '310@s',
+  },
+
   text: {
     bottom: 30,
   },
@@ -51,6 +56,7 @@ const SigninStyles = ScaledSheet.create({
     color: '#539D48',
     fontSize: '30@s',
     fontWeight: '700',
+    left: '20@s',
   },
   icon: {
     height: '211@vs',
@@ -64,7 +70,6 @@ const SigninStyles = ScaledSheet.create({
     backgroundColor: '#fffff0',
     shadowColor: '#999999',
     padding: '17@s',
-    paddingHorizontal: '5@ms',
     marginVertical: '10@s',
     borderRadius: 8,
 
@@ -81,15 +86,16 @@ const SigninStyles = ScaledSheet.create({
     color: '#373737',
     fontSize: 18,
     fontWeight: 'bold',
-
     top: 6,
   },
   contaire98: {
     color: 'red',
     fontSize: 10,
     fontWeight: '500',
-
     marginVertical: '10@s',
+  },
+  PASWV: {
+    bottom: '-10@s',
   },
   texte2: {
     color: '#000',
@@ -101,7 +107,7 @@ const SigninStyles = ScaledSheet.create({
     fontSize: '18@s',
     color: 'blue',
     textDecorationLine: 'underline',
-    bottom: 50,
+    bottom: '30@s',
   },
 
   ScrollV: {

@@ -138,7 +138,7 @@ const Home = ({navigation}) => {
               source={{
                 uri: `https://api.formation.flexi-apps.com${props?.image}`,
               }}
-              style={{width: 395.5, height: 285, borderRadius: 10}}
+              style={HomeStyles.imgs}
             />
           </TouchableOpacity>
         </View>

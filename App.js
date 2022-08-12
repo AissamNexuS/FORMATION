@@ -13,11 +13,41 @@ import AddPost from './src/screens/AddPost/AddPost';
 import Nocnx from './src/screens/NoCnx/Nocnx';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
-import {Platform} from 'react-native';
+import {FlatList, Platform} from 'react-native';
 import PdfView from './src/screens/pdf/pdf';
 import NetInfo from '@react-native-community/netinfo';
 import {useDispatch, useSelector} from 'react-redux';
 import {setConnected} from './src/Redux/CnxSlice';
+import OneSignal from 'react-native-onesignal';
+//
+// OneSignal.setLogLevel(4, 0);
+OneSignal.setAppId('f30f9440-4783-4a36-8b23-7cbbc153ee7e');
+
+OneSignal.promptForPushNotificationsWithUserResponse(response => {
+  console.log(' response   ===>:', response);
+});
+
+OneSignal.setNotificationWillShowInForegroundHandler(
+  notificationReceivedEvent => {
+    console.log(
+      'OneSignal: notification will show in foreground====>:',
+      notificationReceivedEvent,
+    );
+    let notification = notificationReceivedEvent.getNotification();
+
+    const data = notification.additionalData;
+    console.log('additionalData: ', data);
+    notificationReceivedEvent.complete(notification);
+  },
+);
+
+OneSignal.addSubscriptionObserver(event => {
+  console.log('ssssss ====>:', event);
+});
+
+OneSignal.setNotificationOpenedHandler(notification => {
+  console.log('notification opened=====>:', notification);
+});
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -67,7 +97,7 @@ export default function app() {
             return <Ionic name={iconName} size={size} color={color} />;
           },
         })}>
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Home" component={Home} ani />
         <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Map" component={Map} />
         <Tab.Screen name="Share" component={Share} />

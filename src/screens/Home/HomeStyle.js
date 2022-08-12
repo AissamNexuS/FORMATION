@@ -16,6 +16,7 @@ const HomeStyles = ScaledSheet.create({
     fontWeight: 'bold',
     left: '10@s',
     top: '-10@s',
+    alignItems: 'center',
   },
   logop1: {
     width: '34@s',
@@ -25,8 +26,7 @@ const HomeStyles = ScaledSheet.create({
   logop2: {
     width: '34@s',
     height: '34@s',
-    left: '130@s',
-    top: '0@s',
+    left: '120@s',
   },
   logop3: {
     width: '49.92@s',
@@ -156,6 +156,11 @@ const HomeStyles = ScaledSheet.create({
     margin: '10@s',
     top: '2@s',
     backgroundColor: '#C6C6C6',
+  },
+  imgs: {
+    width: '375@s',
+    height: '285@s',
+    borderRadius: 10,
   },
 });
 
