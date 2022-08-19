@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   TextInput,
@@ -14,11 +14,11 @@ import {
 } from 'react-native';
 import Api from './../../source/api';
 import SimpleLottie from '../component/SimpleLottie/SimpleLottie';
-import {displayToast} from '../../../lib/interactions';
+import { displayToast } from '../../../lib/interactions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SigninStyles from './SigninStyle';
 import ActivityIndicatorS from '../component/indicator/ActivityIndicatorS';
-const Signin = ({navigation}) => {
+const Signin = ({ navigation }) => {
   const [Email, setEmail] = useState('');
   const [PassWord, setPassWord] = useState('');
   const [HideShowPassWord, setHideShowPassWord] = useState(true);
@@ -170,7 +170,7 @@ const Signin = ({navigation}) => {
       ) : (
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <View style={{justifyContent: 'flex-start'}}>
+          <View style={{ justifyContent: 'flex-start' }}>
             <Text style={SigninStyles.contaire}>Se Connecter</Text>
           </View>
           <ScrollView style={SigninStyles.ScrollV}>
@@ -249,19 +249,19 @@ const Signin = ({navigation}) => {
                   {
                     backgroundColor:
                       Email === '' ||
-                      MShow ||
-                      PassWord === '' ||
-                      !reg.test(Email) ||
-                      !number.test(PassWord) ||
-                      !letter.test(PassWord) ||
-                      PassWord.length <= 6
+                        MShow ||
+                        PassWord === '' ||
+                        !reg.test(Email) ||
+                        !number.test(PassWord) ||
+                        !letter.test(PassWord) ||
+                        PassWord.length <= 6
                         ? '#80CDC1'
                         : '#268C63',
                   },
                 ]}>
                 {MShow ? (
                   <ActivityIndicator
-                    style={{marginLeft: 10}}
+                    style={{ marginLeft: 10 }}
                     color="#000"
                     size="large"
                   />
