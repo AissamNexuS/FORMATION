@@ -107,18 +107,18 @@ export default function app() {
           headerShown: false,
           headerBackground: 'green',
           tabBarActiveTintColor: '#000000',
-          tabBarInactiveTintColor: 'grey',
+          tabBarInactiveTintColor: '#000000',
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
-            height: Platform.OS === 'android' ? 60 : 90,
             backgroundColor: '#E1FAF6',
             borderTopLeftRadius: 10,
+            height: Platform.OS === 'android' ? 70 : 90,
           },
           tabBarItemStyle: {
             backgroundColor: '#E1FAF6',
           },
           tabBarLabelStyle: {
-            fontWeight: '800',
+            fontWeight: '400',
             fontSize: 14,
             marginBottom: 6,
           },
