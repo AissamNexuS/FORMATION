@@ -1,4 +1,4 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 const SignupStyles = ScaledSheet.create({
   texte: {
@@ -27,9 +27,9 @@ const SignupStyles = ScaledSheet.create({
     borderWidth: '0.4@s',
     elevation: 6,
     backgroundColor: '#FFFFd0',
-    width: '348@s',
+    width: '344@ms',
     left: '10@s',
-    top: '58@s',
+    top: '50@s',
   },
   EnterTxt: {
     color: '#FFFFFF',
@@ -39,7 +39,7 @@ const SignupStyles = ScaledSheet.create({
   },
   typeInput: {
     height: '74@vs',
-    width: '348@s',
+    width: '344@ms',
     left: '10@s',
     backgroundColor: '#FFFFF0',
     borderRadius: '8@s',
