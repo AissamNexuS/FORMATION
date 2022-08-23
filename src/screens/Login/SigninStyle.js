@@ -26,6 +26,7 @@ const SigninStyles = ScaledSheet.create({
   text: {
     bottom: 30,
   },
+
   Btn: {
     height: '74@vs',
     width: '100%',

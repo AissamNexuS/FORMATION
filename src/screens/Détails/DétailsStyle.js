@@ -14,6 +14,7 @@ const StylesDetails = ScaledSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
+  
   btnBack: {
     height: '60@vs',
     width: '60@s',

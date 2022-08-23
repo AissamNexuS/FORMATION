@@ -16,11 +16,12 @@ export default function Nologin({navigation}) {
 
     if (session) {
       navigation.replace('HomeOR');
-      console.log('heeeeeereeeeee')
+      console.log('heeeeeereeeeee');
     } else {
       navigation.replace('Signin');
     }
   };
+
   return (
     <SafeAreaView
       style={{

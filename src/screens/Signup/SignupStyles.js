@@ -22,6 +22,7 @@ const SignupStyles = ScaledSheet.create({
     left: '320@s',
     bottom: '55@s',
   },
+
   dropDown: {
     borderWidth: '0.4@s',
     elevation: 6,

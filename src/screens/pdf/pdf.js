@@ -99,6 +99,7 @@ export default function PdfView({navigation, route}) {
   };
 
   const {uri} = route?.params;
+
   const source = {uri: uri, cache: true};
 
   return (

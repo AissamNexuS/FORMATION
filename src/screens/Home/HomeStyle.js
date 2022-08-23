@@ -50,6 +50,7 @@ const HomeStyles = ScaledSheet.create({
     color: '#373737',
     fontWeight: '600',
     fontSize: 14,
+    left: '-3@s',
   },
   Tel3: {
     color: '#AAAAAA',

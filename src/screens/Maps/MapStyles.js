@@ -24,6 +24,7 @@ const styles = ScaledSheet.create({
     height: '20@s',
     width: '20@s',
   },
+
   mapType1: {
     height: '40@s',
     width: '40@s',
