@@ -1,13 +1,14 @@
-import {Text, View, TouchableOpacity} from 'react-native';
-import React, {useEffect} from 'react';
-import ShareStyles from './ShareStyles';
+import { Text, Image, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import styles from './ShareStyles'
 import Share from 'react-native-share';
+
 
 const ShareC = () => {
   const url =
     'https://drive.google.com/file/d/1BrQZIawHeZGvvafdwuUHa-l3TCPLQSYU/view?usp=sharing';
-  const title = "Lien d'application";
-  const message = 'Veuillez vérifier ceci.';
+  const title = "Lien pour telecharger  l'application";
+  const message = "merci de telecharger et partager l'app.";
 
   const options = {
     title,
@@ -19,21 +20,23 @@ const ShareC = () => {
     try {
       await Share.open(customOptions);
     } catch (err) {
-      console.log('error sharing  :', err);
+      console.log(err);
     }
   };
   return (
-    <View style={ShareStyles.Flx}>
-      <TouchableOpacity
-        onPress={async () => {
-          await share();
-        }}>
-        <View style={ShareStyles.View01}>
-          <Text style={ShareStyles.Title}>Share Apk</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      style={[styles.touch]}
+      onPress={async () => {
+        await share();
+      }}>
+      <View style={styles.semi}>
+        <Image
+          style={styles.iconPartage}
+          source={require('../../../img/pngs/partager.png')}
+        />
+      </View>
+      <Text style={{ color: 'black' }}>Share</Text>
+    </TouchableOpacity>
   );
 };
-
 export default ShareC;

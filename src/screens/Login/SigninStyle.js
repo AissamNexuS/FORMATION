@@ -1,4 +1,4 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 const SigninStyles = ScaledSheet.create({
   texte: {
@@ -19,8 +19,8 @@ const SigninStyles = ScaledSheet.create({
     opacity: '1@s',
   },
   Eye: {
-    top: '-56@s',
-    left: '310@s',
+    bottom: '17.6%',
+    left: '90%',
   },
 
   text: {

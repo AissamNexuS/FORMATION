@@ -3,7 +3,6 @@ import { ScaledSheet } from 'react-native-size-matters/extend';
 const HomeStyles = ScaledSheet.create({
   V: {
     flex: 1,
-    padding: 10,
     paddingHorizontal: '25@s',
     backgroundColor: '#E1FAF6',
   },
@@ -14,9 +13,7 @@ const HomeStyles = ScaledSheet.create({
     fontSize: 30,
     color: '#539D48',
     fontWeight: 'bold',
-    left: '10@s',
-    top: '-10@s',
-    alignItems: 'center',
+
   },
   logop1: {
     width: '34@s',
@@ -26,7 +23,7 @@ const HomeStyles = ScaledSheet.create({
   logop2: {
     width: '34@s',
     height: '34@s',
-    left: '120@s',
+    left: '500%',
   },
   logop3: {
     width: '49.92@s',
@@ -75,8 +72,8 @@ const HomeStyles = ScaledSheet.create({
   },
 
   modal: {
-    height: '311@vs',
-    width: '397@s',
+    height: '30%',
+    width: '90%',
     backgroundColor: 'white',
     position: 'absolute',
     top: '30%',
@@ -148,7 +145,7 @@ const HomeStyles = ScaledSheet.create({
     width: '70@s',
     position: 'absolute',
     right: '0@s',
-    top: '180@s',
+    top: '180@mvs',
   },
   endItem: {
     width: '385@s',
@@ -159,7 +156,7 @@ const HomeStyles = ScaledSheet.create({
     backgroundColor: '#C6C6C6',
   },
   imgs: {
-    width: '413@vs',
+    width: '100%',
     height: '285@s',
     borderRadius: 10,
   },

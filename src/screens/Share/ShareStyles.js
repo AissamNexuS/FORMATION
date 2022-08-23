@@ -1,40 +1,32 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
-
-const ShareStyles = ScaledSheet.create({
-  Flx: {
-    flex: 1,
+import { ScaledSheet } from 'react-native-size-matters/extend';
+const styles = ScaledSheet.create({
+  container: {
+    width: '100%',
+    height: '80@s',
     backgroundColor: '#E1FAF6',
-    justifyContent: 'center',
-    padding: '30@s',
+    position: 'absolute',
+    bottom: 100,
   },
-  Title: {
-    fontSize: 20,
-    fontWeight: '500',
-    marginBottom: '10@s',
-    marginTop: '10@s',
-    color: 'green',
-    alignItems: 'center',
-    justifyContent: 'center',
+  footer: {
+    flexDirection: 'row',
   },
-  View01: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ECECEC',
-    borderRadius: '20@s',
-    padding: '10@s',
-    borderColor: '#373737',
-    elevation: '70@s',
+
+  icon: {
+    width: '30@s',
+    height: '30@s',
+    margin: 5,
   },
-  View02: {
-    alignItems: 'center',
+  iconPartage: {
+    width: '26@s',
+    height: '26@s',
+  },
+  touch: {
+    width: '25%',
+    height: '100%',
     justifyContent: 'center',
-    backgroundColor: '#ECECEC',
-    borderRadius: '20@s',
-    padding: '10@s',
-    top: '10@s',
-    shadowColor: '#373737',
-    elevation: '4@s',
+    alignItems: 'center',
+    backgroundColor: '#E1FAF6',
   },
 });
 
-export default ShareStyles;
+export default styles;

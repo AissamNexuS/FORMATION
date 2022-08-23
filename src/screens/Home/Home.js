@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Api from '../../source/api';
 import ActivityIndicatorS from '../component/indicator/ActivityIndicatorS';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   selectPosts,
   setPosts,
@@ -21,11 +21,11 @@ import {
   initializeList,
 } from './../../Redux/PostSlice';
 import moment from 'moment';
-import {setDetails} from './../../Redux/DetailsSlice';
+import { setDetails } from './../../Redux/DetailsSlice';
 import HomeStyles from './HomeStyle';
 import storage from '../../source/storage';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const [ShowModel, setShowModel] = useState(false);
   const [load, setLoad] = useState(true);
@@ -76,7 +76,7 @@ const Home = ({navigation}) => {
     );
   };
 
-  const {unionBy} = require('lodash');
+  const { unionBy } = require('lodash');
 
   const LoadData = skip => {
     Api()
@@ -159,7 +159,7 @@ const Home = ({navigation}) => {
     );
   };
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     return (
       <Item
         item={item}
@@ -167,82 +167,87 @@ const Home = ({navigation}) => {
         Des={item?.description}
         image={item.imageUrl}
         date={item.created_at}
-        //moment().format('MMMM Do YYYY, h:mm:ss a')
+      //moment().format('MMMM Do YYYY, h:mm:ss a')
       />
     );
   };
 
   return (
     <SafeAreaView style={HomeStyles.V}>
-      <Text style={HomeStyles.txt}>
-        {' '}
-        Fil D'actualité
-        <View>
-          <TouchableOpacity
-            onPress={() => {
-              setShowModel(true);
-            }}>
-            <Image
-              source={require('../../../img/pngs/1.png')}
-              style={HomeStyles.logop2}
-            />
-          </TouchableOpacity>
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={ShowModel}
-            onRequestClose={() => {
-              setShowModel(!ShowModel);
-            }}>
-            <View style={HomeStyles.modalView}>
-              <TouchableOpacity
-                style={HomeStyles.whiteDeleteBtn}
-                onPress={() => {
-                  setShowModel(false);
-                }}>
-                <Image
-                  style={HomeStyles.whiteDelete}
-                  source={require('../../../img/pngs/whiteDelete.png')}
-                />
-              </TouchableOpacity>
-              <View style={HomeStyles.modal}>
-                <Text style={HomeStyles.sortir}>Sortir</Text>
-                <Text style={HomeStyles.etes}>
-                  Êtes-vous sûr de vouloir vous déconnecter ?
-                </Text>
-                <View style={HomeStyles.buttonsView}>
-                  <TouchableOpacity
-                    style={HomeStyles.nonBtn}
-                    onPress={() => {
-                      setShowModel(false);
-                    }}>
-                    <Text style={HomeStyles.nonTxt}>Non</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    disabled={MShow}
-                    style={[
-                      HomeStyles.confirmeBtn,
-                      {
-                        backgroundColor: MShow ? '#80CDC1' : '#268C63',
-                      },
-                    ]}
-                    onPress={Logout}>
-                    {MShow ? (
-                      <ActivityIndicator
-                        style={{marginLeft: 10}}
-                        color="#000"
-                        size="large"
-                      />
-                    ) : (
-                      <Text style={HomeStyles.confirmeTxt}>Je confirme</Text>
-                    )}
-                  </TouchableOpacity>
-                </View>
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 10 }}>
+        <Text style={HomeStyles.txt}>
+          {' '}
+          Fil D'actualité
+
+        </Text>
+        <TouchableOpacity
+          onPress={() => {
+            setShowModel(true);
+          }}>
+          <Image
+            source={require('../../../img/pngs/1.png')}
+            style={HomeStyles.logop2}
+          />
+        </TouchableOpacity>
+      </View>
+      <View>
+
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={ShowModel}
+          onRequestClose={() => {
+            setShowModel(!ShowModel);
+          }}>
+          <View style={HomeStyles.modalView}>
+            <TouchableOpacity
+              style={HomeStyles.whiteDeleteBtn}
+              onPress={() => {
+                setShowModel(false);
+              }}>
+              <Image
+                style={HomeStyles.whiteDelete}
+                source={require('../../../img/pngs/whiteDelete.png')}
+              />
+            </TouchableOpacity>
+            <View style={HomeStyles.modal}>
+              <Text style={HomeStyles.sortir}>Sortir</Text>
+              <Text style={HomeStyles.etes}>
+                Êtes-vous sûr de vouloir vous déconnecter ?
+              </Text>
+              <View style={HomeStyles.buttonsView}>
+                <TouchableOpacity
+                  style={HomeStyles.nonBtn}
+                  onPress={() => {
+                    setShowModel(false);
+                  }}>
+                  <Text style={HomeStyles.nonTxt}>Non</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  disabled={MShow}
+                  style={[
+                    HomeStyles.confirmeBtn,
+                    {
+                      backgroundColor: MShow ? '#80CDC1' : '#268C63',
+                    },
+                  ]}
+                  onPress={Logout}>
+                  {MShow ? (
+                    <ActivityIndicator
+                      style={{ marginLeft: 10 }}
+                      color="#000"
+                      size="large"
+                    />
+                  ) : (
+                    <Text style={HomeStyles.confirmeTxt}>Je confirme</Text>
+                  )}
+                </TouchableOpacity>
               </View>
             </View>
-          </Modal>
-        </View>
-      </Text>
+          </View>
+        </Modal>
+      </View>
+
       <SafeAreaView style={HomeStyles.container}>
         <FlatList
           data={postFromStorage}

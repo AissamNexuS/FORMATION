@@ -19,15 +19,15 @@ const SignupStyles = ScaledSheet.create({
     left: '10@s',
   },
   Eye: {
-    left: '320@s',
-    bottom: '55@s',
+    left: '90%',
+    bottom: '7.5%',
   },
 
   dropDown: {
     borderWidth: '0.4@s',
     elevation: 6,
     backgroundColor: '#FFFFd0',
-    width: '344@ms',
+    width: '96%',
     left: '10@s',
     top: '50@s',
   },
@@ -39,7 +39,7 @@ const SignupStyles = ScaledSheet.create({
   },
   typeInput: {
     height: '74@vs',
-    width: '344@ms',
+    width: '96%',
     left: '10@s',
     backgroundColor: '#FFFFF0',
     borderRadius: '8@s',

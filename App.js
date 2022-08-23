@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from './src/screens/Signup/Signup';
 import Signin from './src/screens/Login/Signin';
 import Home from './src/screens/Home/Home';
@@ -11,16 +11,17 @@ import Détails from './src/screens/Détails/Détails';
 import Notification from './src/screens/Notification/Notification';
 import AddPost from './src/screens/AddPost/AddPost';
 import Nocnx from './src/screens/NoCnx/Nocnx';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
-import {FlatList, Platform} from 'react-native';
+import { FlatList, Platform } from 'react-native';
 import PdfView from './src/screens/pdf/pdf';
 import NetInfo from '@react-native-community/netinfo';
-import {useDispatch, useSelector} from 'react-redux';
-import {setConnected} from './src/Redux/CnxSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setConnected } from './src/Redux/CnxSlice';
 import OneSignal from 'react-native-onesignal';
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 import Share from 'react-native-share';
+import ShareC from './src/screens/Share/Share'
 
 ////////////////////////////////////////////////:
 OneSignal.setAppId('f30f9440-4783-4a36-8b23-7cbbc153ee7e');
@@ -58,41 +59,6 @@ const HomeName = 'Home';
 const MapName = 'Map';
 const NotificationName = 'Notification';
 
-const Partager = () => {
-  const url =
-    'https://drive.google.com/file/d/1BrQZIawHeZGvvafdwuUHa-l3TCPLQSYU/view?usp=sharing';
-  const title = "Lien pour telecharger  l'application";
-  const message = "merci de telecharger et partager l'app.";
-
-  const options = {
-    title,
-    url,
-    message,
-  };
-
-  const share = async (customOptions = options) => {
-    try {
-      await Share.open(customOptions);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  return (
-    <TouchableOpacity
-      style={[styles.touch]}
-      onPress={async () => {
-        await share();
-      }}>
-      <View style={styles.semi}>
-        <Image
-          style={styles.iconPartage}
-          source={require('./img/pngs/partager.png')}
-        />
-      </View>
-      <Text style={{color: 'black'}}>Share</Text>
-    </TouchableOpacity>
-  );
-};
 
 export default function app() {
   const dispatch = useDispatch();
@@ -103,11 +69,11 @@ export default function app() {
     return (
       <Tab.Navigator
         initialRouteName={HomeName}
-        screenOptions={({route}) => ({
+        screenOptions={({ route }) => ({
           headerShown: false,
           headerBackground: 'green',
           tabBarActiveTintColor: '#000000',
-          tabBarInactiveTintColor: 'grey',
+          tabBarInactiveTintColor: '#000000',
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
             height: Platform.OS === 'android' ? 60 : 90,
@@ -118,11 +84,11 @@ export default function app() {
             backgroundColor: '#E1FAF6',
           },
           tabBarLabelStyle: {
-            fontWeight: '800',
+            fontWeight: '400',
             fontSize: 14,
             marginBottom: 6,
           },
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             let iconName;
             let rn = route.name;
 
@@ -148,10 +114,10 @@ export default function app() {
 
             // You can return any component that you like here!
             return (
-              <View style={{padding: 20}}>
+              <View style={{ padding: 20 }}>
                 <Image
                   source={iconName}
-                  style={[{width: width, height: height}]}
+                  style={[{ width: width, height: height }]}
                 />
               </View>
             );
@@ -161,9 +127,9 @@ export default function app() {
         <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Map" component={Map} />
         <Tab.Screen
-          name="Partager"
-          component={Partager}
-          options={{tabBarButton: props => <Partager {...props} />}}
+          name="Share"
+          component={ShareC}
+          options={{ tabBarButton: props => <ShareC /> }}
         />
       </Tab.Navigator>
     );
@@ -180,7 +146,7 @@ export default function app() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Nologin"
-          screenOptions={{headerShown: false}}>
+          screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Nologin" component={Nologin} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Signin" component={Signin} />
@@ -195,32 +161,4 @@ export default function app() {
     </>
   );
 }
-const styles = ScaledSheet.create({
-  container: {
-    width: '100%',
-    height: '80@s',
-    backgroundColor: '#E1FAF6',
-    position: 'absolute',
-    bottom: 100,
-  },
-  footer: {
-    flexDirection: 'row',
-  },
 
-  icon: {
-    width: '30@s',
-    height: '30@s',
-    margin: 5,
-  },
-  iconPartage: {
-    width: '26@s',
-    height: '26@s',
-  },
-  touch: {
-    width: '25%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#E1FAF6',
-  },
-});

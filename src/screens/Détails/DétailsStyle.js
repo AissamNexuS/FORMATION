@@ -1,4 +1,4 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 const StylesDetails = ScaledSheet.create({
   V: {
@@ -14,7 +14,7 @@ const StylesDetails = ScaledSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-  
+
   btnBack: {
     height: '60@vs',
     width: '60@s',
@@ -33,7 +33,7 @@ const StylesDetails = ScaledSheet.create({
     alignItems: 'center',
     height: '70@vs',
     width: '60@s',
-    left: '347@s',
+    left: '86.5%',
     bottom: '80@s',
     backgroundColor: '#C1C1C1',
     borderRadius: '8@s',
@@ -79,7 +79,7 @@ const StylesDetails = ScaledSheet.create({
     color: '#373737',
   },
   imag: {
-    width: '408@s',
+    width: '100%',
     height: '235@s',
     borderRadius: 8,
   },
