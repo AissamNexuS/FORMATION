@@ -1,4 +1,4 @@
-import { ScaledSheet } from 'react-native-size-matters/extend';
+import {ScaledSheet} from 'react-native-size-matters/extend';
 
 const HomeStyles = ScaledSheet.create({
   V: {
@@ -151,7 +151,7 @@ const HomeStyles = ScaledSheet.create({
     top: '180@s',
   },
   endItem: {
-    width: '385@s',
+    width: '95%',
     height: '2@vs',
     borderRadius: 40,
     margin: '10@s',

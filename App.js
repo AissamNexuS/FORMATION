@@ -12,8 +12,7 @@ import Notification from './src/screens/Notification/Notification';
 import AddPost from './src/screens/AddPost/AddPost';
 import Nocnx from './src/screens/NoCnx/Nocnx';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionic from 'react-native-vector-icons/Ionicons';
-import {FlatList, Platform} from 'react-native';
+import {Platform} from 'react-native';
 import PdfView from './src/screens/pdf/pdf';
 import NetInfo from '@react-native-community/netinfo';
 import {useDispatch, useSelector} from 'react-redux';
@@ -124,6 +123,8 @@ export default function app() {
           },
           tabBarIcon: ({focused}) => {
             let iconName;
+            let width;
+            let height;
             let rn = route.name;
 
             if (rn === HomeName) {
@@ -133,14 +134,14 @@ export default function app() {
                 ? require('./img/pngs/activeHome.png')
                 : require('./img/pngs/inactiveHome.png');
             } else if (rn === MapName) {
-              width = 30;
-              height = 30;
+              width = 32;
+              height = 32;
               iconName = focused
                 ? require('./img/pngs/map.png')
                 : require('./img/pngs/inactiveMap.png');
             } else if (rn === NotificationName) {
-              width = 30;
-              height = 30;
+              width = 35;
+              height = 35;
               iconName = focused
                 ? require('./img/pngs/activeNot.png')
                 : require('./img/pngs/inactiveNot.png');
