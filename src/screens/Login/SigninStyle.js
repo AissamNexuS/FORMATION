@@ -112,6 +112,7 @@ const SigninStyles = ScaledSheet.create({
 
   ScrollV: {
     padding: 20,
+
   },
   activity: {
     position: 'absolute',

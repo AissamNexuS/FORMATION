@@ -25,6 +25,7 @@ const HomeStyles = ScaledSheet.create({
     height: '34@s',
     left: '500%',
   },
+
   logop3: {
     width: '49.92@s',
     height: '40@s',

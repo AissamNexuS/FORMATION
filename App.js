@@ -173,7 +173,6 @@ export default function app() {
       dispatch(setConnected(state.isConnected));
     }
   });
-
   return (
     <>
       <NavigationContainer>
