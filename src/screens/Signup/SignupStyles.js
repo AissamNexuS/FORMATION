@@ -62,9 +62,8 @@ const SignupStyles = ScaledSheet.create({
     borderWidth: '0@s',
   },
   ChifrBottom: {
-    bottom: '29@vs',
+    bottom: '29@s',
     left: '10@s',
-
   },
 
   texte3: {
@@ -122,5 +121,4 @@ const SignupStyles = ScaledSheet.create({
     top: '-15@s',
   },
 });
-
 export default SignupStyles;

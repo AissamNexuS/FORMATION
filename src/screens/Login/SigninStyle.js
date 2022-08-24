@@ -72,7 +72,6 @@ const SigninStyles = ScaledSheet.create({
     padding: '17@s',
     marginVertical: '10@s',
     borderRadius: 8,
-
     shadowColor: '#000',
     shadowOffset: {
       width: '0@s',

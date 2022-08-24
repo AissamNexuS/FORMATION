@@ -70,7 +70,6 @@ const HomeStyles = ScaledSheet.create({
   container: {
     flex: 1,
   },
-
   modal: {
     height: '290@ms',
     width: '420@s',

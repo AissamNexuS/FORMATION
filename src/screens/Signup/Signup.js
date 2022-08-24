@@ -73,7 +73,6 @@ const Signup = ({ navigation }) => {
               autoCapitalize="words"
               autoCorrect={false}
             />
-
             <Userinput
               name="Prénom                 "
               value={Prenom}
