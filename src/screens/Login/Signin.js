@@ -133,12 +133,7 @@ const Signin = ({ navigation }) => {
       });
   };
   const storeData = async res => {
-    // try {
-    //   await AsyncStorage.setItem('infoUser', res);
-    //   console.log('Sescuful 1');
-    // } catch (e) {
-    //   console.log('err 1');
-    // }
+
     try {
       await AsyncStorage.setItem('email', Email);
       console.log('ses email data');
