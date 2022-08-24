@@ -125,7 +125,6 @@ export default function app() {
           tabBarIcon: ({focused}) => {
             let iconName;
             let rn = route.name;
-
             if (rn === HomeName) {
               width = 30;
               height = 30;
