@@ -1,4 +1,4 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 export const styles = ScaledSheet.create({
   container: {
@@ -16,6 +16,7 @@ export const styles = ScaledSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   nowifi: {
     top: 100,
     height: '200@vs',

@@ -9,7 +9,6 @@ const ShareC = () => {
     'https://drive.google.com/file/d/1BrQZIawHeZGvvafdwuUHa-l3TCPLQSYU/view?usp=sharing';
   const title = "Lien pour telecharger  l'application";
   const message = "merci de telecharger et partager l'app.";
-
   const options = {
     title,
     url,

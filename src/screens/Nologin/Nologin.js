@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView} from 'react-native';
+import React, { useEffect } from 'react';
+import { SafeAreaView } from 'react-native';
 import storage from '../../source/storage';
-import {useDispatch} from 'react-redux';
-import {initializeList} from '../../Redux/PostSlice';
+import { useDispatch } from 'react-redux';
+import { initializeList } from '../../Redux/PostSlice';
 
-export default function Nologin({navigation}) {
+export default function Nologin({ navigation }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initializeList([]));
     isLoggedIn();
   }, []);
 
+
   const isLoggedIn = async () => {
     const session = await storage.getSession();
-
     if (session) {
       navigation.replace('HomeOR');
       console.log('heeeeeereeeeee');

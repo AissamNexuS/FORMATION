@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   SafeAreaView,
@@ -10,14 +10,15 @@ import {
 } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import Pdf from 'react-native-pdf';
-import {ScaledSheet} from 'react-native-size-matters';
-import {displayToast} from '../../../lib/interactions';
+import { ScaledSheet } from 'react-native-size-matters';
+import { displayToast } from '../../../lib/interactions';
 
-export default function PdfView({navigation, route}) {
+export default function PdfView({ navigation, route }) {
+
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState();
 
-  const {item} = route?.params;
+  const { item } = route?.params;
 
   function fileDownload() {
     console.log('download');
@@ -53,7 +54,7 @@ export default function PdfView({navigation, route}) {
   }
 
   const downloadFile = async () => {
-    const {config, fs} = RNFetchBlob;
+    const { config, fs } = RNFetchBlob;
     let PictureDir =
       Platform.OS === 'ios' ? fs.dirs.DocumentDir : fs.dirs.DownloadDir;
     let date = new Date();
@@ -98,9 +99,9 @@ export default function PdfView({navigation, route}) {
       });
   };
 
-  const {uri} = route?.params;
+  const { uri } = route?.params;
 
-  const source = {uri: uri, cache: true};
+  const source = { uri: uri, cache: true };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -120,7 +121,7 @@ export default function PdfView({navigation, route}) {
         <TouchableOpacity
           style={styles.Back}
           onPress={() => {
-            navigation.navigate('Détails', {item: item});
+            navigation.navigate('Détails', { item: item });
           }}>
           <Image
             style={styles.Icons}

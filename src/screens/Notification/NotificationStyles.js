@@ -1,6 +1,7 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 const styles = ScaledSheet.create({
+
   container: {
     height: '100%',
     position: 'relative',

@@ -91,7 +91,6 @@ const Home = ({ navigation }) => {
             setPosts(unionBy(postFromStorage, responseJson.value, '_id')),
           );
 
-          // console.log("skip diffffff 0")
         }
         setCount(responseJson.count);
       })

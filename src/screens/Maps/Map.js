@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   Image,
   Platform,
@@ -6,19 +6,20 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-import {Marker} from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { Marker } from 'react-native-maps';
 import RNLocation from 'react-native-location';
-import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import styles from './MapStyles';
 
-const MapViewPage = ({navigation}) => {
+const MapViewPage = ({ navigation }) => {
   const [viewLocation, isViewLocation] = useState({
     latitude: 30.882004,
     longitude: -6.582748,
     latitudeDelta: 10.0922,
     longitudeDelta: 10.0421,
   });
+
   const [adress, setAdress] = useState('');
   const ref = useRef();
 
@@ -52,7 +53,7 @@ const MapViewPage = ({navigation}) => {
         },
       });
       console.log(permission);
-      let location = await RNLocation.getLatestLocation({timeout: 10000});
+      let location = await RNLocation.getLatestLocation({ timeout: 10000 });
       console.log(
         location,
         location.longitude,
@@ -63,7 +64,7 @@ const MapViewPage = ({navigation}) => {
       console.log('viewLocation:   ', viewLocation);
     } else {
       console.log('Here 7');
-      let location = await RNLocation.getLatestLocation({timeout: 10000});
+      let location = await RNLocation.getLatestLocation({ timeout: 10000 });
       console.log(
         location,
         location.longitude,
@@ -104,7 +105,7 @@ const MapViewPage = ({navigation}) => {
 
           components: 'country:ma',
         }}
-        textInputProps={{placeholderTextColor: 'gray'}}
+        textInputProps={{ placeholderTextColor: 'gray' }}
         styles={{
           textInputContainer: styles.PlaceTextInputContainer,
 
@@ -143,7 +144,7 @@ const MapViewPage = ({navigation}) => {
             flexDirection: 'row',
           },
           listView: styles.listView,
-          rowData: {color: 'black'},
+          rowData: { color: 'black' },
 
           separator: {
             height: 0.5,
@@ -176,7 +177,7 @@ const MapViewPage = ({navigation}) => {
       />
 
       <MapView
-        style={{height: '100%', width: '100%'}}
+        style={{ height: '100%', width: '100%' }}
         region={viewLocation}
         provider={PROVIDER_GOOGLE}
         mapType={'hybrid'}

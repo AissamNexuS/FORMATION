@@ -133,7 +133,6 @@ const Signin = ({ navigation }) => {
       });
   };
   const storeData = async res => {
-
     try {
       await AsyncStorage.setItem('email', Email);
       console.log('ses email data');

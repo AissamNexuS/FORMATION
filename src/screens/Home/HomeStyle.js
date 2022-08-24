@@ -123,6 +123,7 @@ const HomeStyles = ScaledSheet.create({
     fontWeight: '600',
     color: '#268C63',
   },
+
   confirmeBtn: {
     width: '160@s',
     height: '74@vs',

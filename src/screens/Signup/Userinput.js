@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View, StyleSheet, TextInput} from 'react-native';
-import {ScaledSheet} from 'react-native-size-matters/extend';
+import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
 const Userinput = ({
   name,
@@ -25,7 +25,6 @@ const Userinput = ({
     </View>
   );
 };
-
 const styles = ScaledSheet.create({
   con: {
     padding: 10,

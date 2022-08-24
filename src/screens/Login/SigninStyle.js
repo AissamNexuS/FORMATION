@@ -1,5 +1,4 @@
 import { ScaledSheet } from 'react-native-size-matters/extend';
-
 const SigninStyles = ScaledSheet.create({
   texte: {
     color: '#229764',

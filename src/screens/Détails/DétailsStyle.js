@@ -28,6 +28,7 @@ const StylesDetails = ScaledSheet.create({
     height: '50@vs',
     width: '50@s',
   },
+
   btnPdf: {
     justifyContent: 'center',
     alignItems: 'center',

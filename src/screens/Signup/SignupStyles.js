@@ -65,12 +65,12 @@ const SignupStyles = ScaledSheet.create({
     bottom: '29@s',
     left: '10@s',
   },
+
   texte3: {
     fontWeight: '500',
     fontSize: '18@s',
     color: 'blue',
     top: '10@s',
-
     textDecorationLine: 'underline',
   },
   ScrollV: {

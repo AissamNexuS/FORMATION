@@ -1,5 +1,6 @@
-import {ScaledSheet} from 'react-native-size-matters/extend';
-import {Platform} from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters/extend';
+import { Platform } from 'react-native';
+
 const styles = ScaledSheet.create({
   container: {
     flex: 1,

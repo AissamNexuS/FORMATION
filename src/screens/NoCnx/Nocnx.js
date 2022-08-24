@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, SafeAreaView, Image, Text, StatusBar} from 'react-native';
+import { View, SafeAreaView, Image, Text, StatusBar } from 'react-native';
 
-import {styles} from './styles';
+import { styles } from './styles';
 
 export default function Nocnx() {
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar

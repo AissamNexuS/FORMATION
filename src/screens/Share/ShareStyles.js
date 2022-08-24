@@ -20,6 +20,7 @@ const styles = ScaledSheet.create({
     width: '26@s',
     height: '26@s',
   },
+
   touch: {
     width: '25%',
     height: '100%',

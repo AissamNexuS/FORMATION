@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -12,7 +12,7 @@ import SignupStyles from './SignupStyles';
 import Api from '../../../src/source/api';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [MShow, setMshow] = useState(false);
   const [Name, setName] = useState('');
   const [Prenom, setPrenom] = useState('');
@@ -23,8 +23,8 @@ const Signup = ({navigation}) => {
   const [type, setType] = useState('user');
   const [ouvrer, setouvrer] = useState(false);
   const [dropDown, setdropDown] = useState([
-    {label: 'Parent', value: 'parent'},
-    {label: 'Etudiant', value: 'user'},
+    { label: 'Parent', value: 'parent' },
+    { label: 'Etudiant', value: 'user' },
   ]);
   const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const number = /[0-9]/;
@@ -65,7 +65,7 @@ const Signup = ({navigation}) => {
           <Text style={SignupStyles.contaire}>S'inscripte</Text>
         </View>
         <ScrollView style={SignupStyles.ScrollV}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Userinput
               name="Nom                      "
               value={Name}
@@ -140,7 +140,6 @@ const Signup = ({navigation}) => {
               ❌ Entrez le numéro de téléphone complet{' '}
             </Text>
           )}
-
           <Userinput
             name="mot de passe"
             value={PassWord}
@@ -214,27 +213,27 @@ const Signup = ({navigation}) => {
               {
                 backgroundColor:
                   !Email ||
-                  MShow ||
-                  !Name ||
-                  !Prenom ||
-                  !PassWord ||
-                  !TelePhone ||
-                  Name.length < 3 ||
-                  Prenom.length < 3 ||
-                  !reg.test(Email) ||
-                  !number.test(PassWord) ||
-                  !letter.test(PassWord) ||
-                  PassWord.length <= 6 ||
-                  TelePhone.length < 10 ||
-                  !letter.test(Name) ||
-                  !Bletter.test(Name)
+                    MShow ||
+                    !Name ||
+                    !Prenom ||
+                    !PassWord ||
+                    !TelePhone ||
+                    Name.length < 3 ||
+                    Prenom.length < 3 ||
+                    !reg.test(Email) ||
+                    !number.test(PassWord) ||
+                    !letter.test(PassWord) ||
+                    PassWord.length <= 6 ||
+                    TelePhone.length < 10 ||
+                    !letter.test(Name) ||
+                    !Bletter.test(Name)
                     ? '#80CDC1'
                     : '#268C63',
               },
             ]}>
             {MShow ? (
               <ActivityIndicator
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color="#000"
                 size="large"
               />
