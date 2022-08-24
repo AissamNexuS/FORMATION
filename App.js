@@ -12,15 +12,13 @@ import Notification from './src/screens/Notification/Notification';
 import AddPost from './src/screens/AddPost/AddPost';
 import Nocnx from './src/screens/NoCnx/Nocnx';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionic from 'react-native-vector-icons/Ionicons';
-import { FlatList, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import PdfView from './src/screens/pdf/pdf';
 import NetInfo from '@react-native-community/netinfo';
 import { useDispatch, useSelector } from 'react-redux';
 import { setConnected } from './src/Redux/CnxSlice';
 import OneSignal from 'react-native-onesignal';
 import { ScaledSheet } from 'react-native-size-matters/extend';
-import Share from 'react-native-share';
 import ShareC from './src/screens/Share/Share'
 
 ////////////////////////////////////////////////:
@@ -59,6 +57,41 @@ const HomeName = 'Home';
 const MapName = 'Map';
 const NotificationName = 'Notification';
 
+const Partager = () => {
+  const url =
+    'https://drive.google.com/file/d/1BrQZIawHeZGvvafdwuUHa-l3TCPLQSYU/view?usp=sharing';
+  const title = "Lien pour telecharger  l'application";
+  const message = "merci de telecharger et partager l'app.";
+
+  const options = {
+    title,
+    url,
+    message,
+  };
+
+  const share = async (customOptions = options) => {
+    try {
+      await Share.open(customOptions);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  return (
+    <TouchableOpacity
+      style={[styles.touch]}
+      onPress={async () => {
+        await share();
+      }}>
+      <View style={styles.semi}>
+        <Image
+          style={styles.iconPartage}
+          source={require('./img/pngs/partager.png')}
+        />
+      </View>
+      <Text style={{ color: 'black' }}>Share</Text>
+    </TouchableOpacity>
+  );
+};
 
 export default function app() {
   const dispatch = useDispatch();
@@ -73,7 +106,7 @@ export default function app() {
           headerShown: false,
           headerBackground: 'green',
           tabBarActiveTintColor: '#000000',
-          tabBarInactiveTintColor: '#000000',
+          tabBarInactiveTintColor: 'grey',
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
             height: Platform.OS === 'android' ? 60 : 90,
@@ -84,14 +117,13 @@ export default function app() {
             backgroundColor: '#E1FAF6',
           },
           tabBarLabelStyle: {
-            fontWeight: '400',
+            fontWeight: '800',
             fontSize: 14,
             marginBottom: 6,
           },
           tabBarIcon: ({ focused }) => {
             let iconName;
             let rn = route.name;
-
             if (rn === HomeName) {
               width = 30;
               height = 30;
@@ -127,9 +159,10 @@ export default function app() {
         <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Map" component={Map} />
         <Tab.Screen
+
           name="Share"
           component={ShareC}
-          options={{ tabBarButton: props => <ShareC /> }}
+          options={{ tabBarButton: () => <ShareC /> }}
         />
       </Tab.Navigator>
     );
@@ -161,4 +194,32 @@ export default function app() {
     </>
   );
 }
+const styles = ScaledSheet.create({
+  container: {
+    width: '100%',
+    height: '80@s',
+    backgroundColor: '#E1FAF6',
+    position: 'absolute',
+    bottom: 100,
+  },
+  footer: {
+    flexDirection: 'row',
+  },
 
+  icon: {
+    width: '30@s',
+    height: '30@s',
+    margin: 5,
+  },
+  iconPartage: {
+    width: '26@s',
+    height: '26@s',
+  },
+  touch: {
+    width: '25%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#E1FAF6',
+  },
+});
