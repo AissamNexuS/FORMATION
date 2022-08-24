@@ -86,6 +86,7 @@ const HomeStyles = ScaledSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
+
   modalView: {
     flex: 1,
     zIndex: 9,

@@ -64,6 +64,7 @@ const SigninStyles = ScaledSheet.create({
     marginTop: '20@s',
     alignSelf: 'center',
   },
+
   bord: {
     fontSize: 25,
     color: '#373737',

@@ -49,7 +49,6 @@ const SignupStyles = ScaledSheet.create({
     opacity: '1@s',
     top: '-10@s',
     alignItems: 'center',
-
     shadowColor: '#000',
     shadowOffset: {
       width: '0@s',

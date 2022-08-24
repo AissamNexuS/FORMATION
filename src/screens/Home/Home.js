@@ -208,6 +208,7 @@ const Home = ({ navigation }) => {
                 style={HomeStyles.whiteDelete}
                 source={require('../../../img/pngs/whiteDelete.png')}
               />
+
             </TouchableOpacity>
             <View style={HomeStyles.modal}>
               <Text style={HomeStyles.sortir}>Sortir</Text>

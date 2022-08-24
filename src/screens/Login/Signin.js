@@ -173,7 +173,6 @@ const Signin = ({ navigation }) => {
                 source={require('../../../img/logo.png')}
                 style={SigninStyles.icon}
               />
-
               <Text style={SigninStyles.contaire2}>E-mail</Text>
               <TextInput
                 style={SigninStyles.bord}
