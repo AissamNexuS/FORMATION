@@ -1,15 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters/extend';
 
-const Userinput = ({
-  name,
-  value,
-  setValue,
-  autoCapitalize = 'none',
-  keyboardType = 'default',
-  secureTextEntry = false,
-}) => {
+function Userinput({ name, value, setValue, autoCapitalize = 'none', keyboardType = 'default', secureTextEntry = false, }) {
   return (
     <View style={styles.con}>
       <Text style={styles.contaire2}>{name}</Text>
@@ -20,11 +13,10 @@ const Userinput = ({
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
         value={value}
-        onChangeText={text => setValue(text)}
-      />
+        onChangeText={text => setValue(text)} />
     </View>
   );
-};
+}
 const styles = ScaledSheet.create({
   con: {
     padding: 10,

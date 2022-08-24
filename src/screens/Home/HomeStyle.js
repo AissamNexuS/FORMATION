@@ -72,11 +72,11 @@ const HomeStyles = ScaledSheet.create({
   },
 
   modal: {
-    height: '30%',
-    width: '90%',
+    height: '290@ms',
+    width: '420@s',
     backgroundColor: 'white',
     position: 'absolute',
-    top: '30%',
+    top: '270@ms',
     zIndex: 10,
     alignSelf: 'center',
     borderRadius: 21,
@@ -101,7 +101,7 @@ const HomeStyles = ScaledSheet.create({
   },
   etes: {
     color: '#373737',
-    fontSize: '19@s',
+    fontSize: '20@s',
     fontWeight: '600',
     marginLeft: '29@s',
     marginTop: '15@s',

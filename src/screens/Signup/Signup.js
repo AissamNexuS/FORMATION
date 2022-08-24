@@ -67,7 +67,7 @@ const Signup = ({ navigation }) => {
         <ScrollView style={SignupStyles.ScrollV}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Userinput
-              name="Nom                      "
+              name="Nom                    "
               value={Name}
               setValue={setName}
               autoCapitalize="words"
