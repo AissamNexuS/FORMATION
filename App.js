@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from './src/screens/Signup/Signup';
@@ -17,38 +17,11 @@ import PdfView from './src/screens/pdf/pdf';
 import NetInfo from '@react-native-community/netinfo';
 import { useDispatch, useSelector } from 'react-redux';
 import { setConnected } from './src/Redux/CnxSlice';
-import OneSignal from 'react-native-onesignal';
 import { ScaledSheet } from 'react-native-size-matters/extend';
 import ShareC from './src/screens/Share/Share'
 
-////////////////////////////////////////////////:
-OneSignal.setAppId('f30f9440-4783-4a36-8b23-7cbbc153ee7e');
 
-OneSignal.promptForPushNotificationsWithUserResponse(response => {
-  console.log(' response   ===>:', response);
-});
 
-OneSignal.setNotificationWillShowInForegroundHandler(
-  notificationReceivedEvent => {
-    console.log(
-      'OneSignal: notification will show in foreground====>:',
-      notificationReceivedEvent,
-    );
-    let notification = notificationReceivedEvent.getNotification();
-
-    const data = notification.additionalData;
-    console.log('additionalData: ', data);
-    notificationReceivedEvent.complete(notification);
-  },
-);
-
-OneSignal.addSubscriptionObserver(event => {
-  console.log('ssssss ====>:', event);
-});
-
-OneSignal.setNotificationOpenedHandler(notification => {
-  console.log('notification opened=====>:', notification);
-});
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -57,46 +30,13 @@ const HomeName = 'Home';
 const MapName = 'Map';
 const NotificationName = 'Notification';
 
-const Partager = () => {
-  const url =
-    'https://drive.google.com/file/d/1BrQZIawHeZGvvafdwuUHa-l3TCPLQSYU/view?usp=sharing';
-  const title = "Lien pour telecharger  l'application";
-  const message = "merci de telecharger et partager l'app.";
-
-  const options = {
-    title,
-    url,
-    message,
-  };
-
-  const share = async (customOptions = options) => {
-    try {
-      await Share.open(customOptions);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  return (
-    <TouchableOpacity
-      style={[styles.touch]}
-      onPress={async () => {
-        await share();
-      }}>
-      <View style={styles.semi}>
-        <Image
-          style={styles.iconPartage}
-          source={require('./img/pngs/partager.png')}
-        />
-      </View>
-      <Text style={{ color: 'black' }}>Share</Text>
-    </TouchableOpacity>
-  );
-};
 
 export default function app() {
+
   const dispatch = useDispatch();
 
   const connected = useSelector(state => state?.connected?.value);
+
 
   const ButonBarSelect = () => {
     return (

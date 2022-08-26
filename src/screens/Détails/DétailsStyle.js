@@ -35,7 +35,7 @@ const StylesDetails = ScaledSheet.create({
     height: '70@vs',
     width: '60@s',
     left: '86.5%',
-    bottom: '80@s',
+    bottom: '80@ms',
     backgroundColor: '#C1C1C1',
     borderRadius: '8@s',
     marginRight: '23@s',

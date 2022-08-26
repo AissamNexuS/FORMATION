@@ -76,10 +76,12 @@ const HomeStyles = ScaledSheet.create({
     width: '420@s',
     backgroundColor: 'white',
     position: 'absolute',
-    top: '270@ms',
+    alignContent: 'center',
+    top: '250@ms',
     zIndex: 10,
     alignSelf: 'center',
     borderRadius: 21,
+    flexDirection: 'column',
   },
   footer: {
     padding: '10@s',
